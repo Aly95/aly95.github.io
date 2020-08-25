@@ -3009,14 +3009,15 @@ input, select, textarea {
 		}
 
 		.spotlights > section > .image {
-			background-position: center center;
-			background-size: cover;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
 			border-radius: 0;
 			display: block;
 			position: relative;
 			width: 25em;
 		}
-
+	
 			.spotlights > section > .image img {
 				border-radius: 0;
 				display: block;
