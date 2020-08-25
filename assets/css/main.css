@@ -2617,14 +2617,6 @@ input, select, textarea {
 			.image.main img {
 				width: 100%;
 			}
-			
-@media screen and (max-width: 980px)
-.spotlights > section > .image {
-    width: 100%;
-    margin: auto;
-    height: 50vh;
-    max-width: 50%;
-}
 
 /* List */
 
@@ -3134,8 +3126,10 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			.spotlights > section > .image {
+				width: 100%;
+				margin: auto;
 				height: 50vh;
-				min-height: 15em;
+				max-width: 50%;
 			}
 
 			.spotlights > section > .content {
