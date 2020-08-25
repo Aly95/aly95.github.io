@@ -2565,7 +2565,7 @@ input, select, textarea {
 		border-radius: 0.25em;
 		border: 0;
 		display: inline-block;
-		position: absolute;
+		position: relative;
 		max-height: 30%;
 		max-width: 16%;
 	}
