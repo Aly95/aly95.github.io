@@ -2565,14 +2565,16 @@ input, select, textarea {
 		border-radius: 0.25em;
 		border: 0;
 		display: inline-block;
-		position: relative;
+		position: absolute;
+		max-height: 30%;
+		max-width: 16%;
 	}
 
 		.image img {
 			border-radius: 0.25em;
 			display: block;
 		}
-
+		
 		.image.left, .image.right {
 			max-width: 40%;
 		}
