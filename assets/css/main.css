@@ -3109,7 +3109,6 @@ input, select, textarea {
 				margin: auto;
 				height: 50vh;
 				max-width: 50%;
-				margin: 1%;
 				}
 
 				.spotlights > section > .content {
@@ -3130,10 +3129,9 @@ input, select, textarea {
 
 			.spotlights > section > .image {
 				width: 100%;
-				margin: auto;
+				margin: auto%;
 				height: 50vh;
 				max-width: 50%;
-				margin: 1%;
 			}
 
 			.spotlights > section > .content {
