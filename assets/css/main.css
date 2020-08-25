@@ -2570,7 +2570,7 @@ input, select, textarea {
 		max-width: 17%;
 		min-height: 30%;
 		min-width: 17%;
-		margin-left: 5%
+		margin: 2%
 	}
 
 		.image img {
