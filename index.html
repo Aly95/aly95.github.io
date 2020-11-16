@@ -172,15 +172,14 @@
           images[1] = "images/project45/events.jpg";
 		  images[2] = "images/project45/event.jpg";
 		  images[3] = "images/project45/comments.jpg";
-		  images[4] = "images/project45/eventUpload.jpg";
+		  images[4] = "images/project45/eventupload.jpg";
 		  images[5] = "images/project45/home.jpg";
 		  
           function displayNextImage() {
+			var img = document.getElementById("imgProject")
+		  	fadeIn(img);
               x = (x === images.length - 1) ? 0 : x + 1;
-			  var img = document.getElementById("imgProject")
               img.src = images[x];
-			  fadeIn(img)
-			 
           }
 
           function displayPreviousImage() {
@@ -190,7 +189,6 @@
 		  
           function startTimer() {
               setInterval(displayNextImage, 5000);
-			  running=true
           }
 		  
 		  function fadeIn(el) {
