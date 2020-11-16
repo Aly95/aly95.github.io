@@ -49,7 +49,9 @@
 					<section id="one" class="wrapper style2 spotlights">
 						<section>		
 						<br>
-							<img src="images/project45/home.jpg" id="imgProject" alt="" class="image"/>
+						<a class="image" id="imgProject">
+						<img src="images/project45/home.jpg"/>
+						</a>
 							<div class="content">
 								<div class="inner">
 									<h2>Project 45</h2>
@@ -62,7 +64,8 @@
 						</section>
 						<section>
 						<br>
-							<img src="images/fora/home.jpg" alt="" id="imgFora" class="image" />
+							<a class="image" id="imgFora">
+							<img src="images/fora/home.jpg" alt=""/></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Fora</h2>
@@ -77,7 +80,8 @@
 						</section>
 						<section>
 						<br>
-							<img src="images/covid/home.jpg" alt="" id="imgCovid" class="image" />
+							<a class="image" id="imgCovid">
+							<img src="images/covid/home.jpg" alt="" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>CovidCheck</h2>
@@ -168,44 +172,44 @@
 	<script type="text/javascript">
 	
 	      var imgsProject = [], x = -1;
-          imgsProject[0] = "images/project45/blog.jpg";
-          imgsProject[1] = "images/project45/events.jpg";
-		  imgsProject[2] = "images/project45/event.jpg";
-		  imgsProject[3] = "images/project45/comments.jpg";
-		  imgsProject[4] = "images/project45/eventupload.jpg";
-		  imgsProject[5] = "images/project45/home.jpg";
+          imgsProject[0] = 'url("images/project45/blog.jpg")';
+          imgsProject[1] = 'url("images/project45/events.jpg")';
+		  imgsProject[2] = 'url("images/project45/event.jpg")';
+		  imgsProject[3] = 'url("images/project45/comments.jpg")';
+		  imgsProject[4] = 'url("images/project45/eventupload.jpg")';
+		  imgsProject[5] = 'url("images/project45/home.jpg")';
 		  
 		  var imgsFora = [], y = -1;
-		  imgsFora[0] = "images/fora/search.jpg";
-          imgsFora[1] = "images/fora/account.jpg";
-          imgsFora[2] = "images/fora/submit1.jpg";
-          imgsFora[3] = "images/fora/submit2.jpg";
-          imgsFora[4] = "images/fora/login.jpg";
-		  imgsFora[5] = "images/fora/home.jpg";
+		  imgsFora[0] = 'url("images/fora/search.jpg")';
+          imgsFora[1] = 'url("images/fora/account.jpg")';
+          imgsFora[2] = 'url("images/fora/submit1.jpg")';
+          imgsFora[3] = 'url("images/fora/submit2.jpg")';
+          imgsFora[4] = 'url("images/fora/login.jpg")';
+		  imgsFora[5] = 'url("images/fora/home.jpg")';
 		  
 		  var imgsCovid = [], z = -1;
-		  imgsCovid[0] = "images/covid/country.jpg";
-		  imgsCovid[1] = "images/covid/countrydetail.jpg";
-		  imgsCovid[2] = "images/covid/map.jpg";
-		  imgsCovid[3] = "images/covid/mapdetail.jpg";
-		  imgsCovid[4] = "images/covid/home.jpg";
+		  imgsCovid[0] = 'url("images/covid/country.jpg")';
+		  imgsCovid[1] = 'url("images/covid/countrydetail.jpg")';
+		  imgsCovid[2] = 'url("images/covid/map.jpg")';
+		  imgsCovid[3] = 'url("images/covid/mapdetail.jpg")';
+		  imgsCovid[4] = 'url("images/covid/home.jpg")';
 		    
           function displayNextImage() {
 			var pImg = document.getElementById("imgProject");
 			var fImg = document.getElementById("imgFora");
 			var cImg = document.getElementById("imgCovid");
 			
-			fadeIn(pImg);
               x = (x === imgsProject.length - 1) ? 0 : x + 1;
-              pImg.src = imgsProject[x];
-			  
-			  fadeIn(fImg);
+			  pImg.style.backgroundImage = imgsProject[x];
+			  fadeIn(pImg);
+
 			  y = (y === imgsFora.length - 1) ? 0 : y + 1;
-              fImg.src = imgsFora[y];
-			  
-			  fadeIn(cImg);
+              fImg.style.backgroundImage = imgsFora[x];
+			  fadeIn(fImg);
+		
 			  z = (z === imgsCovid.length - 1) ? 0 : z + 1;
-              cImg.src = imgsCovid[z];
+              cImg.style.backgroundImage = imgsCovid[x];
+			  fadeIn(cImg);
           }
 		  
 
