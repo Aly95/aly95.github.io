@@ -49,9 +49,9 @@
 					<section id="one" class="wrapper style2 spotlights">
 						<section>		
 						<br>
-						<a class="image" id="imgProject">
+						<div class="image" id="imgProject">
 						<img src="images/project45/home.jpg"/>
-						</a>
+						</div>
 							<div class="content">
 								<div class="inner">
 									<h2>Project 45</h2>
@@ -171,6 +171,9 @@
 			<script src="assets/js/main.js"></script>
 	<script type="text/javascript">
 	
+		const opacityTimeout = 700;
+		const imageSwapTime = 675;
+	
 	      var imgsProject = [], x = -1;
           imgsProject[0] = 'url("images/project45/blog.jpg")';
           imgsProject[1] = 'url("images/project45/events.jpg")';
@@ -193,27 +196,8 @@
 		  imgsCovid[2] = 'url("images/covid/map.jpg")';
 		  imgsCovid[3] = 'url("images/covid/mapdetail.jpg")';
 		  imgsCovid[4] = 'url("images/covid/home.jpg")';
-		    
-          function displayNextImage() {
-			var pImg = document.getElementById("imgProject");
-			var fImg = document.getElementById("imgFora");
-			var cImg = document.getElementById("imgCovid");
-			
-              x = (x === imgsProject.length - 1) ? 0 : x + 1;
-			  pImg.style.backgroundImage = imgsProject[x];
-			  			  			  fadeIn(pImg);
-
-			  y = (y === imgsFora.length - 1) ? 0 : y + 1;
-              fImg.style.backgroundImage = imgsFora[x];
-			  			  			  fadeIn(fImg);
-		
-			  z = (z === imgsCovid.length - 1) ? 0 : z + 1;
-              cImg.style.backgroundImage = imgsCovid[x];
-			  			  			  fadeIn(cImg);
-          }
 		  
-
-          function displayPreviousImage() {
+		  function displayPreviousImage() {
               x = (x <= 0) ? images.length - 1 : x - 1;
               document.getElementById("imgProject").src = images[x];
           }
@@ -221,19 +205,32 @@
           function startTimer() {
               setInterval(displayNextImage, 5000);
           }
+		    
+          function displayNextImage() {
+			var pImg = document.getElementById("imgProject");
+			var fImg = document.getElementById("imgFora");
+			var cImg = document.getElementById("imgCovid");
+						
+              x = (x === imgsProject.length - 1) ? 0 : x + 1;
+			  y = (y === imgsFora.length - 1) ? 0 : y + 1;
+			  z = (z === imgsCovid.length - 1) ? 0 : z + 1;
+
+			  fadeOut(pImg, imgsProject[x]);
+			  fadeOut(fImg, imgsFora[y]);
+			  fadeOut(cImg, imgsCovid[z]);
+          }
 		  
-		  function fadeIn(el) {
-    el.style.opacity = 0;
-    var tick = function () {
-        el.style.opacity = +el.style.opacity + 0.01;
-        if (+el.style.opacity < 1) {
-            (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
-        }
-    };
-    tick();
-}
-
-
+		  function fadeOut(elementToSwap, imageToSwapTo) {
+			elementToSwap.style.opacity = 0;
+			
+				setTimeout(() => {
+					elementToSwap.style.backgroundImage = imageToSwapTo;	  
+				}, imageSwapTime);
+				
+				setTimeout(() => {
+					elementToSwap.style.opacity = 1;
+				}, opacityTimeout);
+			}
       </script>			
 	</body>
 </html>
