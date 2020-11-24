@@ -172,7 +172,7 @@
 	<script type="text/javascript">
 	
 		const opacityTimeout = 700;
-		const imageSwapTime = 675;
+		const imageSwapTime = 400;
 	
 	      var imgsProject = [], x = -1;
           imgsProject[0] = 'url("images/project45/blog.jpg")';
@@ -222,14 +222,13 @@
 		  
 		  function fadeOut(elementToSwap, imageToSwapTo) {
 			elementToSwap.style.opacity = 0;
+				setTimeout(() => {
+					elementToSwap.style.opacity = 1;
+				}, opacityTimeout);
 			
 				setTimeout(() => {
 					elementToSwap.style.backgroundImage = imageToSwapTo;	  
 				}, imageSwapTime);
-				
-				setTimeout(() => {
-					elementToSwap.style.opacity = 1;
-				}, opacityTimeout);
 			}
       </script>			
 	</body>
