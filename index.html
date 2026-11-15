@@ -13,6 +13,8 @@
 <meta property="og:description" content="Aly Huggan is a senior Android engineer at VML, based in Scotland, with about five years of professional experience, mostly on the front end.">
 <meta property="og:url" content="https://aly95.github.io/">
 <meta property="og:image" content="https://aly95.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Aly Huggan, Android engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aly Huggan, Android engineer">
@@ -24,40 +26,45 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="fonts/chakra-bolditalic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>!function(h){try{"off"==localStorage.fx?h.dataset.fx="off":sessionStorage.booted||matchMedia("(prefers-reduced-motion:reduce)").matches||h.classList.add("boot")}catch(e){}}(document.documentElement)</script>
 <link rel="stylesheet" href="style.css">
 <script src="site.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="wrap hud">
+<header class="hud">
+<div class="wrap hud-in">
 <a class="home" href="#top">Aly Huggan</a>
 <nav aria-label="Sections">
-<a href="#profile">Profile</a>
+<a href="#profile">About</a>
 <a href="#projects">Projects</a>
+<a href="#toolkit">Toolkit</a>
 <a href="#contact">Contact</a>
 </nav>
+<button type="button" class="fx" data-fx-toggle aria-pressed="true" hidden><span class="vh">Visual effects </span>FX <span class="fx-state" aria-hidden="true">on</span></button>
+</div>
 </header>
 
 <main id="main">
 
-<section class="boot" id="top">
-<canvas id="gem" aria-hidden="true"></canvas>
+<section class="hero" id="top">
+<canvas id="gem" width="300" height="300" aria-hidden="true"></canvas>
 <div class="wrap boot-in">
-<p class="log" aria-hidden="true"><span>Checking memory card</span><span>6 blocks found</span><span>Loading profile</span></p>
+<p class="log" aria-hidden="true"><span>Checking memory card</span><span><b data-count>6</b> blocks found</span><span>Loading profile</span></p>
 <div class="title">
 <p class="role">Senior Android engineer <span aria-hidden="true">/</span> VML <span aria-hidden="true">/</span> Scotland</p>
 <h1><span>Aly</span> <span>Huggan</span></h1>
 <!-- COPY: hero intro -->
 <p class="lead">I’m an Android engineer with about five years of professional experience, most of it on the front end. I joined VML as a mobile app engineer in February 2021 and I’m now a senior Android engineer there.</p>
-<a class="start" href="#projects"><span aria-hidden="true">▶</span> Press start</a>
+<p class="actions"><a class="start" href="#projects"><span class="tri" aria-hidden="true"></span> Press start</a><a class="alt" href="#contact">Contact</a></p>
 </div>
-<p class="bar" aria-hidden="true"><span>1 player</span><span>Scotland</span><span>Since 2021</span></p>
+<p class="status-line" aria-hidden="true"><span>Memory card OK</span><span><b data-count>6</b> blocks</span><span>Ready</span></p>
 </div>
 </section>
 
-<section class="sec wrap" id="profile" aria-labelledby="profile-h">
-<p class="kicker rv"><span>01</span> Player profile</p>
+<section class="sec wrap hr" id="profile" aria-labelledby="profile-h">
+<p class="kicker rv"><span aria-hidden="true">01</span> Player profile</p>
 <h2 id="profile-h" class="rv">About</h2>
 <div class="split">
 <div class="rv">
@@ -65,99 +72,178 @@
 <p class="big">Most of what I do is front-end work on Android apps I’ve helped ship and still maintain.</p>
 <p class="para">I use Claude, ChatGPT, Codex and OpenCode for AI assisted development. Outside work I build my own projects and spend time on developer tooling, Linux and running LLMs locally. I also like getting software running where it wasn’t designed to, which is how I came to work on recompiling older console games.</p>
 </div>
-<dl class="stats rv">
+<div class="panel stats rv">
+<p class="panel-head" aria-hidden="true">Player 1</p>
+<dl>
 <div><dt>Role</dt><dd>Senior Android engineer</dd></div>
 <div><dt>Employer</dt><dd>VML, since February 2021</dd></div>
 <div><dt>Experience</dt><dd>About five years</dd></div>
 <div><dt>Focus</dt><dd>Front-end</dd></div>
-<div><dt>AI assisted development</dt><dd>Claude, ChatGPT, Codex, OpenCode</dd></div>
-<div><dt>Tinkering</dt><dd>Tooling, Linux, local LLMs</dd></div>
 <div><dt>Base</dt><dd>Scotland</dd></div>
 </dl>
 </div>
+</div>
 </section>
 
-<section class="sec wrap" id="projects" aria-labelledby="projects-h">
-<p class="kicker rv"><span>02</span> Memory card</p>
+<section class="sec wrap hr" id="projects" aria-labelledby="projects-h">
+<p class="kicker rv"><span aria-hidden="true">02</span> Memory card</p>
 <h2 id="projects-h" class="rv">Projects</h2>
-<!-- COPY: projects. Each project is one .save block below; its slot icon is in .slots above. -->
-<p class="note rv">Things I’ve built or am building in my own time. Client work stays at work. <span class="hint" hidden>Pick a block to load it.</span></p>
+<!-- COPY: projects. Each project is one .save block below. To add photos, see README.md. -->
+<p class="note rv">Things I’ve built or am building in my own time. Client work stays at work.</p>
 <div class="card rv">
-<div class="slots-wrap">
-<p class="used"><span>Slot 1</span><span>6 of 15 blocks used</span></p>
-<ul class="slots"><li><a class="slot" href="#save-oss" data-save="oss"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="1" y="1" width="4" height="1" fill="#4d8dff"/><rect x="7" y="1" width="4" height="1" fill="#4d8dff"/><rect x="0" y="2" width="1" height="1" fill="#4d8dff"/><rect x="1" y="2" width="4" height="1" fill="#e8ecf8"/><rect x="5" y="2" width="1" height="1" fill="#4d8dff"/><rect x="7" y="2" width="4" height="1" fill="#e8ecf8"/><rect x="11" y="2" width="1" height="1" fill="#4d8dff"/><rect x="0" y="3" width="1" height="1" fill="#4d8dff"/><rect x="1" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="3" width="2" height="1" fill="#232a3d"/><rect x="4" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="5" y="3" width="1" height="1" fill="#4d8dff"/><rect x="7" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="8" y="3" width="2" height="1" fill="#232a3d"/><rect x="10" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="11" y="3" width="1" height="1" fill="#4d8dff"/><rect x="0" y="4" width="1" height="1" fill="#4d8dff"/><rect x="1" y="4" width="4" height="1" fill="#e8ecf8"/><rect x="5" y="4" width="1" height="1" fill="#4d8dff"/><rect x="7" y="4" width="4" height="1" fill="#e8ecf8"/><rect x="11" y="4" width="1" height="1" fill="#4d8dff"/><rect x="0" y="5" width="1" height="1" fill="#4d8dff"/><rect x="1" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="5" width="2" height="1" fill="#232a3d"/><rect x="4" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="5" y="5" width="1" height="1" fill="#4d8dff"/><rect x="7" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="8" y="5" width="2" height="1" fill="#232a3d"/><rect x="10" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="11" y="5" width="1" height="1" fill="#4d8dff"/><rect x="0" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="6" width="4" height="1" fill="#e8ecf8"/><rect x="5" y="6" width="1" height="1" fill="#4d8dff"/><rect x="7" y="6" width="4" height="1" fill="#e8ecf8"/><rect x="11" y="6" width="1" height="1" fill="#4d8dff"/><rect x="0" y="7" width="1" height="1" fill="#4d8dff"/><rect x="1" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="7" width="2" height="1" fill="#232a3d"/><rect x="4" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="5" y="7" width="1" height="1" fill="#4d8dff"/><rect x="7" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="8" y="7" width="2" height="1" fill="#232a3d"/><rect x="10" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="11" y="7" width="1" height="1" fill="#4d8dff"/><rect x="0" y="8" width="1" height="1" fill="#4d8dff"/><rect x="1" y="8" width="4" height="1" fill="#e8ecf8"/><rect x="5" y="8" width="1" height="1" fill="#4d8dff"/><rect x="7" y="8" width="4" height="1" fill="#e8ecf8"/><rect x="11" y="8" width="1" height="1" fill="#4d8dff"/><rect x="1" y="9" width="10" height="1" fill="#4d8dff"/><rect x="4" y="10" width="4" height="1" fill="#4d8dff"/></svg><span class="vh">OSS Nihongo</span></a></li><li><a class="slot" href="#save-digi" data-save="digi"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="4" y="1" width="4" height="1" fill="#ff9a3d"/><rect x="3" y="2" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="2" width="4" height="1" fill="#e8ecf8"/><rect x="8" y="2" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="3" width="4" height="1" fill="#e8ecf8"/><rect x="7" y="3" width="1" height="1" fill="#232a3d"/><rect x="8" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="9" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="4" width="1" height="1" fill="#e8ecf8"/><rect x="4" y="4" width="1" height="1" fill="#232a3d"/><rect x="5" y="4" width="4" height="1" fill="#e8ecf8"/><rect x="9" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="5" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="6" width="3" height="1" fill="#e8ecf8"/><rect x="5" y="6" width="1" height="1" fill="#232a3d"/><rect x="6" y="6" width="4" height="1" fill="#e8ecf8"/><rect x="10" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="3" y="7" width="1" height="1" fill="#232a3d"/><rect x="4" y="7" width="4" height="1" fill="#e8ecf8"/><rect x="8" y="7" width="1" height="1" fill="#232a3d"/><rect x="9" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="10" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="8" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="9" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="9" width="6" height="1" fill="#e8ecf8"/><rect x="9" y="9" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="10" width="6" height="1" fill="#ff9a3d"/></svg><span class="vh">Digimon World, recompiled</span></a></li><li><a class="slot" href="#save-metal" data-save="metal"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="2" y="2" width="8" height="1" fill="#4d8dff"/><rect x="1" y="3" width="1" height="1" fill="#4d8dff"/><rect x="2" y="3" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="3" width="1" height="1" fill="#4d8dff"/><rect x="0" y="4" width="1" height="1" fill="#4d8dff"/><rect x="1" y="4" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="4" width="4" height="1" fill="#232a3d"/><rect x="6" y="4" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="4" width="4" height="1" fill="#232a3d"/><rect x="11" y="4" width="1" height="1" fill="#4d8dff"/><rect x="0" y="5" width="1" height="1" fill="#4d8dff"/><rect x="1" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="5" width="1" height="1" fill="#232a3d"/><rect x="3" y="5" width="2" height="1" fill="#e8ecf8"/><rect x="5" y="5" width="1" height="1" fill="#232a3d"/><rect x="6" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="5" width="1" height="1" fill="#232a3d"/><rect x="8" y="5" width="2" height="1" fill="#e8ecf8"/><rect x="10" y="5" width="1" height="1" fill="#232a3d"/><rect x="11" y="5" width="1" height="1" fill="#4d8dff"/><rect x="0" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="6" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="6" width="4" height="1" fill="#232a3d"/><rect x="6" y="6" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="6" width="4" height="1" fill="#232a3d"/><rect x="11" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="7" width="1" height="1" fill="#4d8dff"/><rect x="2" y="7" width="3" height="1" fill="#e8ecf8"/><rect x="5" y="7" width="2" height="1" fill="#4d8dff"/><rect x="7" y="7" width="3" height="1" fill="#e8ecf8"/><rect x="10" y="7" width="1" height="1" fill="#4d8dff"/><rect x="2" y="8" width="3" height="1" fill="#4d8dff"/><rect x="7" y="8" width="3" height="1" fill="#4d8dff"/></svg><span class="vh">Metal Arms in VR</span></a></li><li><a class="slot" href="#save-p45" data-save="p45"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="1" y="1" width="1" height="1" fill="#98a2bd"/><rect x="1" y="2" width="1" height="1" fill="#98a2bd"/><rect x="2" y="2" width="7" height="1" fill="#ff9a3d"/><rect x="1" y="3" width="1" height="1" fill="#98a2bd"/><rect x="2" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="3" width="5" height="1" fill="#e8ecf8"/><rect x="8" y="3" width="2" height="1" fill="#ff9a3d"/><rect x="1" y="4" width="1" height="1" fill="#98a2bd"/><rect x="2" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="4" width="7" height="1" fill="#e8ecf8"/><rect x="10" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="5" width="1" height="1" fill="#98a2bd"/><rect x="2" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="5" width="5" height="1" fill="#e8ecf8"/><rect x="8" y="5" width="2" height="1" fill="#ff9a3d"/><rect x="1" y="6" width="1" height="1" fill="#98a2bd"/><rect x="2" y="6" width="7" height="1" fill="#ff9a3d"/><rect x="1" y="7" width="1" height="1" fill="#98a2bd"/><rect x="1" y="8" width="1" height="1" fill="#98a2bd"/><rect x="1" y="9" width="1" height="1" fill="#98a2bd"/><rect x="0" y="10" width="3" height="1" fill="#98a2bd"/></svg><span class="vh">Project 45</span></a></li><li><a class="slot" href="#save-fora" data-save="fora"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="3" y="1" width="1" height="1" fill="#e8ecf8"/><rect x="6" y="1" width="1" height="1" fill="#e8ecf8"/><rect x="9" y="1" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="2" width="1" height="1" fill="#e8ecf8"/><rect x="5" y="2" width="1" height="1" fill="#e8ecf8"/><rect x="8" y="2" width="1" height="1" fill="#e8ecf8"/><rect x="3" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="6" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="9" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="0" y="5" width="12" height="1" fill="#4d8dff"/><rect x="0" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="6" width="10" height="1" fill="#e8ecf8"/><rect x="11" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="7" width="1" height="1" fill="#4d8dff"/><rect x="2" y="7" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="7" width="1" height="1" fill="#4d8dff"/><rect x="1" y="8" width="1" height="1" fill="#4d8dff"/><rect x="2" y="8" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="8" width="1" height="1" fill="#4d8dff"/><rect x="2" y="9" width="8" height="1" fill="#4d8dff"/><rect x="3" y="10" width="6" height="1" fill="#232a3d"/></svg><span class="vh">Fora</span></a></li><li><a class="slot" href="#save-covid" data-save="covid"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="10" y="1" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="2" width="1" height="1" fill="#e8ecf8"/><rect x="10" y="2" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="4" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="6" width="1" height="1" fill="#e8ecf8"/><rect x="4" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="0" y="9" width="12" height="1" fill="#98a2bd"/></svg><span class="vh">CovidCheck</span></a></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li></ul>
+<div class="card-head" aria-hidden="true">
+<p class="used"><span>Slot 1</span><span><b data-count>6</b> of 15 blocks used</span></p>
+<ol class="meter"><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
 </div>
-<div class="saves">
+
+<p class="group-label">Current</p>
+
 <div class="save" id="save-oss">
-<p class="block">Block 01</p>
-<h3 id="save-oss-h">OSS Nihongo</h3>
-<p class="status live">In progress</p>
-<p class="d">An Android app for Japanese study that puts spaced-repetition lessons and reviews, Anki deck import and grammar practice in one place. It isn’t released yet. It will be free, with the source public at release.</p>
-<p class="tech">Kotlin <span aria-hidden="true">/</span> Android</p>
-<ul class="shots" tabindex="0" aria-label="OSS Nihongo screenshots"><li><img src="img/home-360.webp" srcset="img/home-360.webp 360w, img/home-720.webp 720w" sizes="170px" width="360" height="727" alt="OSS Nihongo home screen showing lessons and reviews due, a daily goal and a chart of upcoming reviews." loading="lazy" decoding="async"></li><li><img src="img/lesson-360.webp" srcset="img/lesson-360.webp 360w, img/lesson-720.webp 720w" sizes="170px" width="360" height="727" alt="A kanji lesson showing the character’s meaning, readings, the radicals it is built from and a mnemonic." loading="lazy" decoding="async"></li><li><img src="img/review-360.webp" srcset="img/review-360.webp 360w, img/review-720.webp 720w" sizes="170px" width="360" height="727" alt="A vocabulary review after a wrong answer, with the correct meanings and reading shown below." loading="lazy" decoding="async"></li></ul><p class="fine">Screenshots are from a development build. OSS Nihongo is an independent project and isn’t affiliated with WaniKani, Anki or Bunpro.</p>
+<h3 class="save-head" id="save-oss-h"><svg class="ico" viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path fill="#4d8dff" d="M1 1h4v1h-4zM7 1h4v1h-4zM0 2h1v1h-1zM5 2h1v1h-1zM11 2h1v1h-1zM0 3h1v1h-1zM5 3h1v1h-1zM11 3h1v1h-1zM0 4h1v1h-1zM5 4h1v1h-1zM11 4h1v1h-1zM0 5h1v1h-1zM5 5h1v1h-1zM11 5h1v1h-1zM0 6h1v1h-1zM5 6h1v1h-1zM11 6h1v1h-1zM0 7h1v1h-1zM5 7h1v1h-1zM11 7h1v1h-1zM0 8h1v1h-1zM5 8h1v1h-1zM11 8h1v1h-1zM1 9h10v1h-10zM4 10h4v1h-4z"/><path fill="#e8ecf8" d="M1 2h4v1h-4zM7 2h4v1h-4zM1 3h1v1h-1zM4 3h1v1h-1zM7 3h1v1h-1zM10 3h1v1h-1zM1 4h4v1h-4zM7 4h4v1h-4zM1 5h1v1h-1zM4 5h1v1h-1zM7 5h1v1h-1zM10 5h1v1h-1zM1 6h4v1h-4zM7 6h4v1h-4zM1 7h1v1h-1zM4 7h1v1h-1zM7 7h1v1h-1zM10 7h1v1h-1zM1 8h4v1h-4zM7 8h4v1h-4z"/><path fill="#232a3d" d="M2 3h2v1h-2zM8 3h2v1h-2zM2 5h2v1h-2zM8 5h2v1h-2zM2 7h2v1h-2zM8 7h2v1h-2z"/></svg><span class="save-title">OSS Nihongo</span><span class="save-meta">In progress</span></h3>
+<div class="save-body" id="save-oss-body" role="region" aria-labelledby="save-oss-h">
+<p class="save-top"><span class="block" aria-hidden="true">Block 01</span><span class="status live">In progress</span></p>
+<p class="save-big" aria-hidden="true">OSS Nihongo</p>
+<div class="gallery phone" data-title="OSS Nihongo">
+<ul class="frames">
+<li><a class="frame" href="img/oss-nihongo/oss-nihongo-home-1080.webp"><img src="img/oss-nihongo/oss-nihongo-home-360.webp" srcset="img/oss-nihongo/oss-nihongo-home-360.webp 360w, img/oss-nihongo/oss-nihongo-home-720.webp 720w, img/oss-nihongo/oss-nihongo-home-1080.webp 1080w" sizes="(min-width: 860px) 220px, 160px" width="360" height="727" alt="OSS Nihongo home screen showing lessons and reviews due, a daily goal and a chart of upcoming reviews." loading="lazy" decoding="async"></a></li>
+<li><a class="frame" href="img/oss-nihongo/oss-nihongo-lesson-1080.webp"><img src="img/oss-nihongo/oss-nihongo-lesson-360.webp" srcset="img/oss-nihongo/oss-nihongo-lesson-360.webp 360w, img/oss-nihongo/oss-nihongo-lesson-720.webp 720w, img/oss-nihongo/oss-nihongo-lesson-1080.webp 1080w" sizes="(min-width: 860px) 220px, 160px" width="360" height="727" alt="A kanji lesson showing the character’s meaning, readings, the radicals it is built from and a mnemonic." loading="lazy" decoding="async"></a></li>
+<li><a class="frame" href="img/oss-nihongo/oss-nihongo-review-1080.webp"><img src="img/oss-nihongo/oss-nihongo-review-360.webp" srcset="img/oss-nihongo/oss-nihongo-review-360.webp 360w, img/oss-nihongo/oss-nihongo-review-720.webp 720w, img/oss-nihongo/oss-nihongo-review-1080.webp 1080w" sizes="(min-width: 860px) 220px, 160px" width="360" height="727" alt="A vocabulary review after a wrong answer, with the correct meanings and reading shown below." loading="lazy" decoding="async"></a></li>
+</ul>
 </div>
+<p class="d">An Android app for Japanese study that puts spaced-repetition lessons and reviews, Anki deck import and grammar practice in one place. It isn’t released yet. It will be free, with the source public at release.</p>
+<ul class="tech"><li>Kotlin</li><li>Android</li></ul>
+<p class="fine">Screenshots are from a development build. OSS Nihongo is an independent project and isn’t affiliated with WaniKani, Anki or Bunpro.</p>
+<p class="save-nav" hidden><button type="button" data-step="-1"><span class="tri tri-l" aria-hidden="true"></span> Prev</button><button type="button" data-step="1">Next <span class="tri" aria-hidden="true"></span></button></p>
+</div>
+</div>
+
+<div class="save" id="save-metal">
+<h3 class="save-head" id="save-metal-h"><svg class="ico" viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path fill="#4d8dff" d="M2 2h8v1h-8zM1 3h1v1h-1zM10 3h1v1h-1zM0 4h1v1h-1zM11 4h1v1h-1zM0 5h1v1h-1zM11 5h1v1h-1zM0 6h1v1h-1zM11 6h1v1h-1zM1 7h1v1h-1zM5 7h2v1h-2zM10 7h1v1h-1zM2 8h3v1h-3zM7 8h3v1h-3z"/><path fill="#e8ecf8" d="M2 3h8v1h-8zM1 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM3 5h2v1h-2zM6 5h1v1h-1zM8 5h2v1h-2zM1 6h1v1h-1zM6 6h1v1h-1zM2 7h3v1h-3zM7 7h3v1h-3z"/><path fill="#232a3d" d="M2 4h4v1h-4zM7 4h4v1h-4zM2 5h1v1h-1zM5 5h1v1h-1zM7 5h1v1h-1zM10 5h1v1h-1zM2 6h4v1h-4zM7 6h4v1h-4z"/></svg><span class="save-title">Metal Arms in VR</span><span class="save-meta">Ongoing</span></h3>
+<div class="save-body" id="save-metal-body" role="region" aria-labelledby="save-metal-h">
+<p class="save-top"><span class="block" aria-hidden="true">Block 02</span><span class="status live">Ongoing</span></p>
+<p class="save-big" aria-hidden="true">Metal Arms in VR</p>
+<!-- PLACEHOLDER: VR photos. Add a "gallery wide" block here, before the summary. README.md has the steps and the markup to copy. -->
+<p class="d">Recompiling Metal Arms so it runs in VR through OpenXR, a game that was never built for it.</p>
+<ul class="tech"><li>OpenXR</li><li>Recompilation</li></ul>
+<p class="save-nav" hidden><button type="button" data-step="-1"><span class="tri tri-l" aria-hidden="true"></span> Prev</button><button type="button" data-step="1">Next <span class="tri" aria-hidden="true"></span></button></p>
+</div>
+</div>
+
 <div class="save" id="save-digi">
-<p class="block">Block 02</p>
-<h3 id="save-digi-h">Digimon World, recompiled</h3>
-<p class="status live">Ongoing</p>
+<h3 class="save-head" id="save-digi-h"><svg class="ico" viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path fill="#ff9a3d" d="M4 1h4v1h-4zM3 2h1v1h-1zM8 2h1v1h-1zM2 3h1v1h-1zM9 3h1v1h-1zM2 4h1v1h-1zM9 4h1v1h-1zM1 5h1v1h-1zM10 5h1v1h-1zM1 6h1v1h-1zM10 6h1v1h-1zM1 7h1v1h-1zM10 7h1v1h-1zM1 8h1v1h-1zM10 8h1v1h-1zM2 9h1v1h-1zM9 9h1v1h-1zM3 10h6v1h-6z"/><path fill="#e8ecf8" d="M4 2h4v1h-4zM3 3h4v1h-4zM8 3h1v1h-1zM3 4h1v1h-1zM5 4h4v1h-4zM2 5h8v1h-8zM2 6h3v1h-3zM6 6h4v1h-4zM2 7h1v1h-1zM4 7h4v1h-4zM9 7h1v1h-1zM2 8h8v1h-8zM3 9h6v1h-6z"/><path fill="#232a3d" d="M7 3h1v1h-1zM4 4h1v1h-1zM5 6h1v1h-1zM3 7h1v1h-1zM8 7h1v1h-1z"/></svg><span class="save-title">Digimon World, recompiled</span><span class="save-meta">Ongoing</span></h3>
+<div class="save-body" id="save-digi-body" role="region" aria-labelledby="save-digi-h">
+<p class="save-top"><span class="block" aria-hidden="true">Block 03</span><span class="status live">Ongoing</span></p>
+<p class="save-big" aria-hidden="true">Digimon World, recompiled</p>
 <p class="d">Work on a recompilation of Digimon World, the original PlayStation game. <!-- PLACEHOLDER: one sentence on what the recompilation achieves (for example, what it runs on now). --></p>
-<p class="tech">PS1 <span aria-hidden="true">/</span> Recompilation</p>
+<ul class="tech"><li>PS1</li><li>Recompilation</li></ul>
+<p class="save-nav" hidden><button type="button" data-step="-1"><span class="tri tri-l" aria-hidden="true"></span> Prev</button><button type="button" data-step="1">Next <span class="tri" aria-hidden="true"></span></button></p>
+</div>
+</div>
+
+<p class="group-label">Earlier, 2020 to 2021</p>
+
+<div class="save" id="save-p45">
+<h3 class="save-head" id="save-p45-h"><svg class="ico" viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path fill="#98a2bd" d="M1 1h1v1h-1zM1 2h1v1h-1zM1 3h1v1h-1zM1 4h1v1h-1zM1 5h1v1h-1zM1 6h1v1h-1zM1 7h1v1h-1zM1 8h1v1h-1zM1 9h1v1h-1zM0 10h3v1h-3z"/><path fill="#ff9a3d" d="M2 2h7v1h-7zM2 3h1v1h-1zM8 3h2v1h-2zM2 4h1v1h-1zM10 4h1v1h-1zM2 5h1v1h-1zM8 5h2v1h-2zM2 6h7v1h-7z"/><path fill="#e8ecf8" d="M3 3h5v1h-5zM3 4h7v1h-7zM3 5h5v1h-5z"/></svg><span class="save-title">Project 45</span><span class="save-meta">Not released</span></h3>
+<div class="save-body" id="save-p45-body" role="region" aria-labelledby="save-p45-h">
+<p class="save-top"><span class="block" aria-hidden="true">Block 04</span><span class="status">2020 to 2021, not released</span></p>
+<p class="save-big" aria-hidden="true">Project 45</p>
+<div class="gallery phone" data-title="Project 45">
+<ul class="frames">
+<li><a class="frame" href="img/project45/project45-home-880.webp"><img src="img/project45/project45-home-440.webp" srcset="img/project45/project45-home-440.webp 440w, img/project45/project45-home-880.webp 880w" sizes="(min-width: 860px) 220px, 160px" width="440" height="803" alt="Project 45 home screen with recent blog posts and a list of upcoming events." loading="lazy" decoding="async"></a></li>
+<li><a class="frame" href="img/project45/project45-blog-880.webp"><img src="img/project45/project45-blog-440.webp" srcset="img/project45/project45-blog-440.webp 440w, img/project45/project45-blog-880.webp 880w" sizes="(min-width: 860px) 220px, 160px" width="440" height="803" alt="A blog post in Project 45 with a header photo, author, publish date and article text." loading="lazy" decoding="async"></a></li>
+</ul>
+</div>
+<p class="d">An Android app for a campaign organisation, with a blog, events you could sort by date, popularity or distance, and points for taking part.</p>
+<ul class="tech"><li>Kotlin</li><li>Firebase</li><li>MVVM</li></ul>
+<p class="save-nav" hidden><button type="button" data-step="-1"><span class="tri tri-l" aria-hidden="true"></span> Prev</button><button type="button" data-step="1">Next <span class="tri" aria-hidden="true"></span></button></p>
+</div>
+</div>
+
+<div class="save" id="save-fora">
+<h3 class="save-head" id="save-fora-h"><svg class="ico" viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path fill="#e8ecf8" d="M3 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM2 2h1v1h-1zM5 2h1v1h-1zM8 2h1v1h-1zM3 3h1v1h-1zM6 3h1v1h-1zM9 3h1v1h-1zM1 6h10v1h-10zM2 7h8v1h-8zM2 8h8v1h-8z"/><path fill="#4d8dff" d="M0 5h12v1h-12zM0 6h1v1h-1zM11 6h1v1h-1zM1 7h1v1h-1zM10 7h1v1h-1zM1 8h1v1h-1zM10 8h1v1h-1zM2 9h8v1h-8z"/><path fill="#232a3d" d="M3 10h6v1h-6z"/></svg><span class="save-title">Fora</span><span class="save-meta">Not released</span></h3>
+<div class="save-body" id="save-fora-body" role="region" aria-labelledby="save-fora-h">
+<p class="save-top"><span class="block" aria-hidden="true">Block 05</span><span class="status">2020 to 2021, not released</span></p>
+<p class="save-big" aria-hidden="true">Fora</p>
+<div class="gallery phone" data-title="Fora">
+<ul class="frames">
+<li><a class="frame" href="img/fora/fora-home-880.webp"><img src="img/fora/fora-home-440.webp" srcset="img/fora/fora-home-440.webp 440w, img/fora/fora-home-880.webp 880w" sizes="(min-width: 860px) 220px, 160px" width="440" height="803" alt="Fora home screen with recipe cards grouped under Top rated, Savoury and Lunch, each with a star rating." loading="lazy" decoding="async"></a></li>
+<li><a class="frame" href="img/fora/fora-search-880.webp"><img src="img/fora/fora-search-440.webp" srcset="img/fora/fora-search-440.webp 440w, img/fora/fora-search-880.webp 880w" sizes="(min-width: 860px) 220px, 160px" width="440" height="803" alt="Fora search results for salmon, showing matching recipes with their ratings." loading="lazy" decoding="async"></a></li>
+<li><a class="frame" href="img/fora/fora-submit1-880.webp"><img src="img/fora/fora-submit1-440.webp" srcset="img/fora/fora-submit1-440.webp 440w, img/fora/fora-submit1-880.webp 880w" sizes="(min-width: 860px) 220px, 160px" width="440" height="803" alt="The Fora form for adding a recipe, with fields for the recipe name and its ingredients." loading="lazy" decoding="async"></a></li>
+</ul>
+</div>
+<p class="d">A recipe app where you could search and rate recipes and add your own once signed in.</p>
+<ul class="tech"><li>Android</li><li>Firebase</li></ul>
+<p class="save-nav" hidden><button type="button" data-step="-1"><span class="tri tri-l" aria-hidden="true"></span> Prev</button><button type="button" data-step="1">Next <span class="tri" aria-hidden="true"></span></button></p>
+</div>
+</div>
+
+<div class="save" id="save-covid">
+<h3 class="save-head" id="save-covid-h"><svg class="ico" viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path fill="#e8ecf8" d="M10 1h1v1h-1zM7 2h1v1h-1zM4 4h1v1h-1zM1 6h1v1h-1z"/><path fill="#ff9a3d" d="M10 2h1v1h-1zM7 3h1v1h-1zM10 3h1v1h-1zM7 4h1v1h-1zM10 4h1v1h-1zM4 5h1v1h-1zM7 5h1v1h-1zM10 5h1v1h-1zM4 6h1v1h-1zM7 6h1v1h-1zM10 6h1v1h-1zM1 7h1v1h-1zM4 7h1v1h-1zM7 7h1v1h-1zM10 7h1v1h-1zM1 8h1v1h-1zM4 8h1v1h-1zM7 8h1v1h-1zM10 8h1v1h-1z"/><path fill="#98a2bd" d="M0 9h12v1h-12z"/></svg><span class="save-title">CovidCheck</span><span class="save-meta">Not released</span></h3>
+<div class="save-body" id="save-covid-body" role="region" aria-labelledby="save-covid-h">
+<p class="save-top"><span class="block" aria-hidden="true">Block 06</span><span class="status">2020 to 2021, not released</span></p>
+<p class="save-big" aria-hidden="true">CovidCheck</p>
+<div class="gallery phone" data-title="CovidCheck">
+<ul class="frames">
+<li><a class="frame" href="img/covidcheck/covidcheck-home-880.webp"><img src="img/covidcheck/covidcheck-home-440.webp" srcset="img/covidcheck/covidcheck-home-440.webp 440w, img/covidcheck/covidcheck-home-880.webp 880w" sizes="(min-width: 860px) 220px, 160px" width="440" height="803" alt="CovidCheck totals screen with worldwide confirmed, infected, recovered and death figures and a ring chart." loading="lazy" decoding="async"></a></li>
+<li><a class="frame" href="img/covidcheck/covidcheck-country-880.webp"><img src="img/covidcheck/covidcheck-country-440.webp" srcset="img/covidcheck/covidcheck-country-440.webp 440w, img/covidcheck/covidcheck-country-880.webp 880w" sizes="(min-width: 860px) 220px, 160px" width="440" height="803" alt="CovidCheck list of countries with their flags and case counts." loading="lazy" decoding="async"></a></li>
+<li><a class="frame" href="img/covidcheck/covidcheck-map-880.webp"><img src="img/covidcheck/covidcheck-map-440.webp" srcset="img/covidcheck/covidcheck-map-440.webp 440w, img/covidcheck/covidcheck-map-880.webp 880w" sizes="(min-width: 860px) 220px, 160px" width="440" height="803" alt="CovidCheck map view with markers on several countries." loading="lazy" decoding="async"></a></li>
+</ul>
+</div>
+<p class="d">Built in a week for a TopCoder challenge. It showed Covid-19 figures by country, on a list and on a Google map.</p>
+<ul class="tech"><li>Android</li><li>Google Maps</li></ul>
+<p class="save-nav" hidden><button type="button" data-step="-1"><span class="tri tri-l" aria-hidden="true"></span> Prev</button><button type="button" data-step="1">Next <span class="tri" aria-hidden="true"></span></button></p>
+</div>
+</div>
 
 </div>
-<div class="save" id="save-metal">
-<p class="block">Block 03</p>
-<h3 id="save-metal-h">Metal Arms in VR</h3>
-<p class="status live">Ongoing</p>
-<p class="d">Recompiling Metal Arms so it runs in VR through OpenXR, a game that was never built for it.</p>
-<p class="tech">OpenXR <span aria-hidden="true">/</span> Recompilation</p>
-<!-- PLACEHOLDER: VR photos. Put images in img/vr/ (WebP, about 800 and 1600 px wide) and uncomment:
-<ul class="shots" tabindex="0" aria-label="Metal Arms in VR photos"><li class="wide"><img src="img/vr/metal-arms-1-800.webp" srcset="img/vr/metal-arms-1-800.webp 800w, img/vr/metal-arms-1-1600.webp 1600w" sizes="(min-width:860px) 560px, 90vw" width="800" height="450" alt="PLACEHOLDER: describe the photo." loading="lazy" decoding="async"></li></ul>
--->
+</section>
+
+<section class="band" id="toolkit" aria-labelledby="toolkit-h">
+<div class="wrap">
+<p class="kicker rv"><span aria-hidden="true">03</span> Loadout</p>
+<h2 id="toolkit-h" class="rv">Toolkit</h2>
+<div class="kit">
+<div class="panel rv">
+<p class="plabel" aria-hidden="true">Co-op</p>
+<h3 class="kit-big">AI assisted development</h3>
+<ul class="party">
+<li><span aria-hidden="true">P2</span>Claude</li>
+<li><span aria-hidden="true">P3</span>ChatGPT</li>
+<li><span aria-hidden="true">P4</span>Codex</li>
+<li><span aria-hidden="true">P5</span>OpenCode</li>
+</ul>
 </div>
-<div class="save" id="save-p45">
-<p class="block">Block 04</p>
-<h3 id="save-p45-h">Project 45</h3>
-<p class="status">2020 to 2021, not released</p>
-<p class="d">An Android app for a campaign organisation, with a blog, events you could sort by date, popularity or distance, and points for taking part.</p>
-<p class="tech">Kotlin <span aria-hidden="true">/</span> Firebase <span aria-hidden="true">/</span> MVVM</p>
-<ul class="shots"><li><img src="img/project45-160.webp" srcset="img/project45-160.webp 160w, img/project45-320.webp 320w" sizes="150px" width="160" height="347" alt="Home screen of the Project 45 app." loading="lazy" decoding="async"></li></ul>
-</div>
-<div class="save" id="save-fora">
-<p class="block">Block 05</p>
-<h3 id="save-fora-h">Fora</h3>
-<p class="status">2020 to 2021, not released</p>
-<p class="d">A recipe app where you could search and rate recipes and add your own once signed in.</p>
-<p class="tech">Android <span aria-hidden="true">/</span> Firebase</p>
-<ul class="shots"><li><img src="img/fora-160.webp" srcset="img/fora-160.webp 160w, img/fora-320.webp 320w" sizes="150px" width="160" height="347" alt="Home screen of the Fora recipe app." loading="lazy" decoding="async"></li></ul>
-</div>
-<div class="save" id="save-covid">
-<p class="block">Block 06</p>
-<h3 id="save-covid-h">CovidCheck</h3>
-<p class="status">2020 to 2021, not released</p>
-<p class="d">Built in a week for a TopCoder challenge. It showed Covid-19 figures by country, on a list and on a Google map.</p>
-<p class="tech">Android <span aria-hidden="true">/</span> Google Maps</p>
-<ul class="shots"><li><img src="img/covidcheck-160.webp" srcset="img/covidcheck-160.webp 160w, img/covidcheck-320.webp 320w" sizes="150px" width="160" height="347" alt="Home screen of the CovidCheck app." loading="lazy" decoding="async"></li></ul>
+<div class="panel rv">
+<p class="plabel" aria-hidden="true">Equipped</p>
+<h3 class="kit-h">Built with</h3>
+<ul class="chips"><li>Kotlin</li><li>Android</li><li>Firebase</li><li>MVVM</li><li>Google Maps</li><li>OpenXR</li></ul>
+<p class="plabel" aria-hidden="true">Side slot</p>
+<h3 class="kit-h">Tinkering</h3>
+<ul class="chips"><li>Developer tooling</li><li>Linux</li><li>Local LLMs</li></ul>
 </div>
 </div>
 </div>
 </section>
 
 <section class="sec wrap contact" id="contact" aria-labelledby="contact-h">
-<p class="kicker rv"><span>03</span> Continue?</p>
+<p class="kicker rv"><span aria-hidden="true">04</span> Continue?</p>
 <h2 id="contact-h" class="rv">Contact</h2>
 <!-- COPY: contact -->
 <p class="note rv">Based in Scotland. Email is the best way to reach me.</p>
 <ul class="menu rv">
-<li><a href="mailto:alyhuggan@hotmail.co.uk">alyhuggan<wbr>@hotmail.co.uk</a></li>
-<li><a href="https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/">LinkedIn</a></li>
-<li><a href="https://github.com/aly95">GitHub</a></li>
+<li><a href="mailto:alyhuggan@hotmail.co.uk">alyhuggan<wbr>@hotmail.co.uk</a><button type="button" class="copy" data-copy="alyhuggan@hotmail.co.uk" hidden>Copy</button><span class="vh" aria-live="polite"></span></li>
+<li><a href="https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/" rel="noopener">LinkedIn<svg class="ext" viewBox="0 0 12 12" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true" focusable="false"><path d="M4 1h7v2h-7zM9 3h2v5h-2zM7 3h2v2h-2zM5 5h2v2h-2zM3 7h2v2h-2zM1 9h2v2h-2z"/></svg></a></li>
+<li><a href="https://github.com/aly95" rel="noopener">GitHub<svg class="ext" viewBox="0 0 12 12" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true" focusable="false"><path d="M4 1h7v2h-7zM9 3h2v5h-2zM7 3h2v2h-2zM5 5h2v2h-2zM3 7h2v2h-2zM1 9h2v2h-2z"/></svg></a></li>
 </ul>
 </section>
 
 </main>
 
-<footer class="wrap foot">
-<p>© 2026 Aly Huggan. Plain HTML, CSS and a little JavaScript. No trackers.</p>
+<footer class="foot">
+<div class="wrap foot-in">
+<p>© <span data-year>2026</span> Aly Huggan. Plain HTML, CSS and a little JavaScript. No trackers.</p>
+<p class="foot-ctl"><button type="button" class="fx" data-fx-toggle aria-pressed="true" hidden><span class="vh">Visual effects </span>FX <span class="fx-state" aria-hidden="true">on</span></button><a class="top" href="#top"><span class="tri tri-u" aria-hidden="true"></span> Back to top</a></p>
+</div>
 </footer>
 </body>
 </html>
