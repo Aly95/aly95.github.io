@@ -4,68 +4,160 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aly Huggan, Android engineer</title>
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
-<meta name="description" content="Aly Huggan is a senior Android engineer based in Scotland, currently building OSS Nihongo, an open source app for learning Japanese.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#06070b">
+<meta name="description" content="Aly Huggan is a senior Android engineer at VML, based in Scotland, with about five years of professional experience, mostly on the front end.">
 <link rel="canonical" href="https://aly95.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aly Huggan, Android engineer">
-<meta property="og:description" content="Aly Huggan is a senior Android engineer based in Scotland, currently building OSS Nihongo, an open source app for learning Japanese.">
+<meta property="og:description" content="Aly Huggan is a senior Android engineer at VML, based in Scotland, with about five years of professional experience, mostly on the front end.">
 <meta property="og:url" content="https://aly95.github.io/">
 <meta property="og:image" content="https://aly95.github.io/og.png">
 <meta property="og:image:alt" content="Aly Huggan, Android engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aly Huggan, Android engineer">
-<meta name="twitter:description" content="Aly Huggan is a senior Android engineer based in Scotland, currently building OSS Nihongo, an open source app for learning Japanese.">
+<meta name="twitter:description" content="Aly Huggan is a senior Android engineer at VML, based in Scotland, with about five years of professional experience, mostly on the front end.">
 <meta name="twitter:image" content="https://aly95.github.io/og.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Aly Huggan","jobTitle":"Senior Android engineer","url":"https://aly95.github.io/","sameAs":["https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/","https://github.com/aly95"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Aly Huggan","jobTitle":"Senior Android engineer","worksFor":{"@type":"Organization","name":"VML"},"address":{"@type":"PostalAddress","addressRegion":"Scotland"},"url":"https://aly95.github.io/","sameAs":["https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/","https://github.com/aly95"]}</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css">
+<link rel="preload" href="fonts/chakra-bolditalic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="wrap site-header"><a class="name" href="#top">Aly Huggan</a><nav aria-label="Sections"><a href="#oss-nihongo">OSS Nihongo</a><a href="#earlier-projects">Earlier projects</a><a href="#contact">Contact</a></nav></header>
-<main id="main" class="wrap">
-<section class="intro" id="top">
-<h1>Aly Huggan</h1>
-<p class="lead">I’m an Android engineer based in Scotland.</p>
-<p>I joined VML as a mobile app engineer in February 2021 and I’m now a senior Android engineer there. In that time I’ve helped ship and maintain several apps. Outside work I’m building OSS Nihongo, an Android app for learning Japanese.</p>
-<ul class="links"><li><a href="mailto:alyhuggan@hotmail.co.uk">Email</a></li><li><a href="https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/">LinkedIn</a></li><li><a href="https://github.com/aly95">GitHub</a></li></ul>
-</section>
-<section id="oss-nihongo" aria-labelledby="oss-h">
-<h2 id="oss-h">OSS Nihongo</h2>
-<p class="status">Work in progress · Kotlin · Android</p>
-<div class="stack">
-<p>Studying Japanese usually means juggling a few tools: WaniKani for kanji and vocabulary, Anki for your own decks, Bunpro for grammar. OSS Nihongo is my attempt to put that whole routine into one free app.</p>
-<p>What it does so far:</p>
-<ul class="feat">
-<li>Lessons and reviews on a spaced repetition schedule, synced with your WaniKani account</li>
-<li>Imports Anki decks from .apkg files</li>
-<li>Grammar study in the style of Bunpro</li>
-<li>A YouTube watcher that shows the subtitles, highlights the words you already know and tells you what percentage of a video you know</li>
-<li>Text to speech, home screen widgets, and dark, OLED and paper themes</li>
-</ul>
-<p>It isn’t released yet. Right now I’m working on UI polish, grammar content and getting it ready for release. The source will be public when it launches.</p>
+
+<header class="wrap hud">
+<a class="home" href="#top">Aly Huggan</a>
+<nav aria-label="Sections">
+<a href="#profile">Profile</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<main id="main">
+
+<section class="boot" id="top">
+<canvas id="gem" aria-hidden="true"></canvas>
+<div class="wrap boot-in">
+<p class="log" aria-hidden="true"><span>Checking memory card</span><span>6 blocks found</span><span>Loading profile</span></p>
+<div class="title">
+<p class="role">Senior Android engineer <span aria-hidden="true">/</span> VML <span aria-hidden="true">/</span> Scotland</p>
+<h1><span>Aly</span> <span>Huggan</span></h1>
+<!-- COPY: hero intro -->
+<p class="lead">I’m an Android engineer with about five years of professional experience, most of it on the front end. I joined VML as a mobile app engineer in February 2021 and I’m now a senior Android engineer there.</p>
+<a class="start" href="#projects"><span aria-hidden="true">▶</span> Press start</a>
 </div>
-<ul class="shots" tabindex="0" aria-label="OSS Nihongo screenshots, scrollable"><li><figure class="frame"><img src="img/home-360.webp" srcset="img/home-360.webp 360w, img/home-720.webp 720w" sizes="(min-width:960px) 300px, (min-width:640px) 30vw, 60vw" width="360" height="727" alt="OSS Nihongo home screen showing lessons and reviews due, a daily goal and a chart of upcoming reviews." loading="lazy" decoding="async"></figure></li><li><figure class="frame"><img src="img/lesson-360.webp" srcset="img/lesson-360.webp 360w, img/lesson-720.webp 720w" sizes="(min-width:960px) 300px, (min-width:640px) 30vw, 60vw" width="360" height="727" alt="A kanji lesson showing the character’s meaning, readings, the radicals it is built from and a mnemonic." loading="lazy" decoding="async"></figure></li><li><figure class="frame"><img src="img/review-360.webp" srcset="img/review-360.webp 360w, img/review-720.webp 720w" sizes="(min-width:960px) 300px, (min-width:640px) 30vw, 60vw" width="360" height="727" alt="A vocabulary review after a wrong answer, with the correct meanings and reading shown below." loading="lazy" decoding="async"></figure></li><li class="wide"><figure class="frame land"><img src="img/watch-800.webp" srcset="img/watch-800.webp 800w, img/watch-1600.webp 1600w" sizes="(min-width:720px) 720px, 90vw" width="800" height="369" alt="A Japanese video playing with its subtitle line below. Words the learner already knows are highlighted." loading="lazy" decoding="async"></figure></li></ul>
-<p class="cap">Screenshots from a development build. OSS Nihongo is an independent project and isn’t affiliated with WaniKani, Anki or Bunpro.</p>
+<p class="bar" aria-hidden="true"><span>1 player</span><span>Scotland</span><span>Since 2021</span></p>
+</div>
 </section>
-<section id="earlier-projects" aria-labelledby="earlier-h">
-<h2 id="earlier-h">Earlier projects</h2>
-<p style="margin-top:var(--space-3)">Side projects from 2020 and 2021, when I was starting out with Android. None of them were released and none are running today.</p>
-<article class="proj"><div><h3>Project 45</h3><p>An Android app built for a campaign organisation. It had a blog, events that people could create and sort by date, popularity or distance, comments and favourites, and points for taking part.</p><ul class="tags"><li>Kotlin</li><li>Firebase</li><li>MVVM</li></ul></div><figure class="frame"><img src="img/project45-160.webp" srcset="img/project45-160.webp 160w, img/project45-320.webp 320w" sizes="120px" width="160" height="347" alt="Home screen of the Project 45 app." loading="lazy" decoding="async"></figure></article><article class="proj"><div><h3>Fora</h3><p>A recipe and food rating app. You could browse and search recipes, rate and favourite them, and add your own once signed in.</p><ul class="tags"><li>Android</li><li>Firebase</li></ul></div><figure class="frame"><img src="img/fora-160.webp" srcset="img/fora-160.webp 160w, img/fora-320.webp 320w" sizes="120px" width="160" height="347" alt="Home screen of the Fora recipe app." loading="lazy" decoding="async"></figure></article><article class="proj"><div><h3>CovidCheck</h3><p>Built in a week for a TopCoder challenge. It showed global and per-country Covid-19 figures, a map with a marker for each country, and a button to share a screenshot of the current screen.</p><ul class="tags"><li>Android</li><li>Google Maps</li></ul></div><figure class="frame"><img src="img/covidcheck-160.webp" srcset="img/covidcheck-160.webp 160w, img/covidcheck-320.webp 320w" sizes="120px" width="160" height="347" alt="Home screen of the CovidCheck app." loading="lazy" decoding="async"></figure></article>
+
+<section class="sec wrap" id="profile" aria-labelledby="profile-h">
+<p class="kicker rv"><span>01</span> Player profile</p>
+<h2 id="profile-h" class="rv">About</h2>
+<div class="split">
+<div class="rv">
+<!-- COPY: about -->
+<p class="big">Most of what I do is front-end work on Android apps I’ve helped ship and still maintain.</p>
+<p class="para">I use Claude, ChatGPT, Codex and OpenCode for AI assisted development. Outside work I build my own projects and spend time on developer tooling, Linux and running LLMs locally. I also like getting software running where it wasn’t designed to, which is how I came to work on recompiling older console games.</p>
+</div>
+<dl class="stats rv">
+<div><dt>Role</dt><dd>Senior Android engineer</dd></div>
+<div><dt>Employer</dt><dd>VML, since February 2021</dd></div>
+<div><dt>Experience</dt><dd>About five years</dd></div>
+<div><dt>Focus</dt><dd>Front-end</dd></div>
+<div><dt>AI assisted development</dt><dd>Claude, ChatGPT, Codex, OpenCode</dd></div>
+<div><dt>Tinkering</dt><dd>Tooling, Linux, local LLMs</dd></div>
+<div><dt>Base</dt><dd>Scotland</dd></div>
+</dl>
+</div>
 </section>
-<section id="contact" aria-labelledby="contact-h">
-<h2 id="contact-h">Contact</h2>
-<p style="margin-top:var(--space-3)">Email is the best way to reach me.</p>
-<ul class="links"><li><a href="mailto:alyhuggan@hotmail.co.uk">alyhuggan@hotmail.co.uk</a></li><li><a href="https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/">LinkedIn</a></li><li><a href="https://github.com/aly95">GitHub</a></li></ul>
-<p class="muted" style="margin-top:var(--space-4)">Based in Scotland.</p>
+
+<section class="sec wrap" id="projects" aria-labelledby="projects-h">
+<p class="kicker rv"><span>02</span> Memory card</p>
+<h2 id="projects-h" class="rv">Projects</h2>
+<!-- COPY: projects. Each project is one .save block below; its slot icon is in .slots above. -->
+<p class="note rv">Things I’ve built or am building in my own time. Client work stays at work. <span class="hint" hidden>Pick a block to load it.</span></p>
+<div class="card rv">
+<div class="slots-wrap">
+<p class="used"><span>Slot 1</span><span>6 of 15 blocks used</span></p>
+<ul class="slots"><li><a class="slot" href="#save-oss" data-save="oss"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="1" y="1" width="4" height="1" fill="#4d8dff"/><rect x="7" y="1" width="4" height="1" fill="#4d8dff"/><rect x="0" y="2" width="1" height="1" fill="#4d8dff"/><rect x="1" y="2" width="4" height="1" fill="#e8ecf8"/><rect x="5" y="2" width="1" height="1" fill="#4d8dff"/><rect x="7" y="2" width="4" height="1" fill="#e8ecf8"/><rect x="11" y="2" width="1" height="1" fill="#4d8dff"/><rect x="0" y="3" width="1" height="1" fill="#4d8dff"/><rect x="1" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="3" width="2" height="1" fill="#232a3d"/><rect x="4" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="5" y="3" width="1" height="1" fill="#4d8dff"/><rect x="7" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="8" y="3" width="2" height="1" fill="#232a3d"/><rect x="10" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="11" y="3" width="1" height="1" fill="#4d8dff"/><rect x="0" y="4" width="1" height="1" fill="#4d8dff"/><rect x="1" y="4" width="4" height="1" fill="#e8ecf8"/><rect x="5" y="4" width="1" height="1" fill="#4d8dff"/><rect x="7" y="4" width="4" height="1" fill="#e8ecf8"/><rect x="11" y="4" width="1" height="1" fill="#4d8dff"/><rect x="0" y="5" width="1" height="1" fill="#4d8dff"/><rect x="1" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="5" width="2" height="1" fill="#232a3d"/><rect x="4" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="5" y="5" width="1" height="1" fill="#4d8dff"/><rect x="7" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="8" y="5" width="2" height="1" fill="#232a3d"/><rect x="10" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="11" y="5" width="1" height="1" fill="#4d8dff"/><rect x="0" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="6" width="4" height="1" fill="#e8ecf8"/><rect x="5" y="6" width="1" height="1" fill="#4d8dff"/><rect x="7" y="6" width="4" height="1" fill="#e8ecf8"/><rect x="11" y="6" width="1" height="1" fill="#4d8dff"/><rect x="0" y="7" width="1" height="1" fill="#4d8dff"/><rect x="1" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="7" width="2" height="1" fill="#232a3d"/><rect x="4" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="5" y="7" width="1" height="1" fill="#4d8dff"/><rect x="7" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="8" y="7" width="2" height="1" fill="#232a3d"/><rect x="10" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="11" y="7" width="1" height="1" fill="#4d8dff"/><rect x="0" y="8" width="1" height="1" fill="#4d8dff"/><rect x="1" y="8" width="4" height="1" fill="#e8ecf8"/><rect x="5" y="8" width="1" height="1" fill="#4d8dff"/><rect x="7" y="8" width="4" height="1" fill="#e8ecf8"/><rect x="11" y="8" width="1" height="1" fill="#4d8dff"/><rect x="1" y="9" width="10" height="1" fill="#4d8dff"/><rect x="4" y="10" width="4" height="1" fill="#4d8dff"/></svg><span class="vh">OSS Nihongo</span></a></li><li><a class="slot" href="#save-digi" data-save="digi"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="4" y="1" width="4" height="1" fill="#ff9a3d"/><rect x="3" y="2" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="2" width="4" height="1" fill="#e8ecf8"/><rect x="8" y="2" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="3" width="4" height="1" fill="#e8ecf8"/><rect x="7" y="3" width="1" height="1" fill="#232a3d"/><rect x="8" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="9" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="4" width="1" height="1" fill="#e8ecf8"/><rect x="4" y="4" width="1" height="1" fill="#232a3d"/><rect x="5" y="4" width="4" height="1" fill="#e8ecf8"/><rect x="9" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="5" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="6" width="3" height="1" fill="#e8ecf8"/><rect x="5" y="6" width="1" height="1" fill="#232a3d"/><rect x="6" y="6" width="4" height="1" fill="#e8ecf8"/><rect x="10" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="3" y="7" width="1" height="1" fill="#232a3d"/><rect x="4" y="7" width="4" height="1" fill="#e8ecf8"/><rect x="8" y="7" width="1" height="1" fill="#232a3d"/><rect x="9" y="7" width="1" height="1" fill="#e8ecf8"/><rect x="10" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="8" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="2" y="9" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="9" width="6" height="1" fill="#e8ecf8"/><rect x="9" y="9" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="10" width="6" height="1" fill="#ff9a3d"/></svg><span class="vh">Digimon World, recompiled</span></a></li><li><a class="slot" href="#save-metal" data-save="metal"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="2" y="2" width="8" height="1" fill="#4d8dff"/><rect x="1" y="3" width="1" height="1" fill="#4d8dff"/><rect x="2" y="3" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="3" width="1" height="1" fill="#4d8dff"/><rect x="0" y="4" width="1" height="1" fill="#4d8dff"/><rect x="1" y="4" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="4" width="4" height="1" fill="#232a3d"/><rect x="6" y="4" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="4" width="4" height="1" fill="#232a3d"/><rect x="11" y="4" width="1" height="1" fill="#4d8dff"/><rect x="0" y="5" width="1" height="1" fill="#4d8dff"/><rect x="1" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="5" width="1" height="1" fill="#232a3d"/><rect x="3" y="5" width="2" height="1" fill="#e8ecf8"/><rect x="5" y="5" width="1" height="1" fill="#232a3d"/><rect x="6" y="5" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="5" width="1" height="1" fill="#232a3d"/><rect x="8" y="5" width="2" height="1" fill="#e8ecf8"/><rect x="10" y="5" width="1" height="1" fill="#232a3d"/><rect x="11" y="5" width="1" height="1" fill="#4d8dff"/><rect x="0" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="6" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="6" width="4" height="1" fill="#232a3d"/><rect x="6" y="6" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="6" width="4" height="1" fill="#232a3d"/><rect x="11" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="7" width="1" height="1" fill="#4d8dff"/><rect x="2" y="7" width="3" height="1" fill="#e8ecf8"/><rect x="5" y="7" width="2" height="1" fill="#4d8dff"/><rect x="7" y="7" width="3" height="1" fill="#e8ecf8"/><rect x="10" y="7" width="1" height="1" fill="#4d8dff"/><rect x="2" y="8" width="3" height="1" fill="#4d8dff"/><rect x="7" y="8" width="3" height="1" fill="#4d8dff"/></svg><span class="vh">Metal Arms in VR</span></a></li><li><a class="slot" href="#save-p45" data-save="p45"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="1" y="1" width="1" height="1" fill="#98a2bd"/><rect x="1" y="2" width="1" height="1" fill="#98a2bd"/><rect x="2" y="2" width="7" height="1" fill="#ff9a3d"/><rect x="1" y="3" width="1" height="1" fill="#98a2bd"/><rect x="2" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="3" width="5" height="1" fill="#e8ecf8"/><rect x="8" y="3" width="2" height="1" fill="#ff9a3d"/><rect x="1" y="4" width="1" height="1" fill="#98a2bd"/><rect x="2" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="4" width="7" height="1" fill="#e8ecf8"/><rect x="10" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="5" width="1" height="1" fill="#98a2bd"/><rect x="2" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="3" y="5" width="5" height="1" fill="#e8ecf8"/><rect x="8" y="5" width="2" height="1" fill="#ff9a3d"/><rect x="1" y="6" width="1" height="1" fill="#98a2bd"/><rect x="2" y="6" width="7" height="1" fill="#ff9a3d"/><rect x="1" y="7" width="1" height="1" fill="#98a2bd"/><rect x="1" y="8" width="1" height="1" fill="#98a2bd"/><rect x="1" y="9" width="1" height="1" fill="#98a2bd"/><rect x="0" y="10" width="3" height="1" fill="#98a2bd"/></svg><span class="vh">Project 45</span></a></li><li><a class="slot" href="#save-fora" data-save="fora"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="3" y="1" width="1" height="1" fill="#e8ecf8"/><rect x="6" y="1" width="1" height="1" fill="#e8ecf8"/><rect x="9" y="1" width="1" height="1" fill="#e8ecf8"/><rect x="2" y="2" width="1" height="1" fill="#e8ecf8"/><rect x="5" y="2" width="1" height="1" fill="#e8ecf8"/><rect x="8" y="2" width="1" height="1" fill="#e8ecf8"/><rect x="3" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="6" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="9" y="3" width="1" height="1" fill="#e8ecf8"/><rect x="0" y="5" width="12" height="1" fill="#4d8dff"/><rect x="0" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="6" width="10" height="1" fill="#e8ecf8"/><rect x="11" y="6" width="1" height="1" fill="#4d8dff"/><rect x="1" y="7" width="1" height="1" fill="#4d8dff"/><rect x="2" y="7" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="7" width="1" height="1" fill="#4d8dff"/><rect x="1" y="8" width="1" height="1" fill="#4d8dff"/><rect x="2" y="8" width="8" height="1" fill="#e8ecf8"/><rect x="10" y="8" width="1" height="1" fill="#4d8dff"/><rect x="2" y="9" width="8" height="1" fill="#4d8dff"/><rect x="3" y="10" width="6" height="1" fill="#232a3d"/></svg><span class="vh">Fora</span></a></li><li><a class="slot" href="#save-covid" data-save="covid"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><rect x="10" y="1" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="2" width="1" height="1" fill="#e8ecf8"/><rect x="10" y="2" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="3" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="4" width="1" height="1" fill="#e8ecf8"/><rect x="7" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="4" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="5" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="6" width="1" height="1" fill="#e8ecf8"/><rect x="4" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="6" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="7" width="1" height="1" fill="#ff9a3d"/><rect x="1" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="4" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="7" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="10" y="8" width="1" height="1" fill="#ff9a3d"/><rect x="0" y="9" width="12" height="1" fill="#98a2bd"/></svg><span class="vh">CovidCheck</span></a></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li><li class="empty" aria-hidden="true"></li></ul>
+</div>
+<div class="saves">
+<div class="save" id="save-oss">
+<p class="block">Block 01</p>
+<h3 id="save-oss-h">OSS Nihongo</h3>
+<p class="status live">In progress</p>
+<p class="d">An Android app for Japanese study that puts spaced-repetition lessons and reviews, Anki deck import and grammar practice in one place. It isn’t released yet. It will be free, with the source public at release.</p>
+<p class="tech">Kotlin <span aria-hidden="true">/</span> Android</p>
+<ul class="shots" tabindex="0" aria-label="OSS Nihongo screenshots"><li><img src="img/home-360.webp" srcset="img/home-360.webp 360w, img/home-720.webp 720w" sizes="170px" width="360" height="727" alt="OSS Nihongo home screen showing lessons and reviews due, a daily goal and a chart of upcoming reviews." loading="lazy" decoding="async"></li><li><img src="img/lesson-360.webp" srcset="img/lesson-360.webp 360w, img/lesson-720.webp 720w" sizes="170px" width="360" height="727" alt="A kanji lesson showing the character’s meaning, readings, the radicals it is built from and a mnemonic." loading="lazy" decoding="async"></li><li><img src="img/review-360.webp" srcset="img/review-360.webp 360w, img/review-720.webp 720w" sizes="170px" width="360" height="727" alt="A vocabulary review after a wrong answer, with the correct meanings and reading shown below." loading="lazy" decoding="async"></li></ul><p class="fine">Screenshots are from a development build. OSS Nihongo is an independent project and isn’t affiliated with WaniKani, Anki or Bunpro.</p>
+</div>
+<div class="save" id="save-digi">
+<p class="block">Block 02</p>
+<h3 id="save-digi-h">Digimon World, recompiled</h3>
+<p class="status live">Ongoing</p>
+<p class="d">Work on a recompilation of Digimon World, the original PlayStation game. <!-- PLACEHOLDER: one sentence on what the recompilation achieves (for example, what it runs on now). --></p>
+<p class="tech">PS1 <span aria-hidden="true">/</span> Recompilation</p>
+
+</div>
+<div class="save" id="save-metal">
+<p class="block">Block 03</p>
+<h3 id="save-metal-h">Metal Arms in VR</h3>
+<p class="status live">Ongoing</p>
+<p class="d">Recompiling Metal Arms so it runs in VR through OpenXR, a game that was never built for it.</p>
+<p class="tech">OpenXR <span aria-hidden="true">/</span> Recompilation</p>
+<!-- PLACEHOLDER: VR photos. Put images in img/vr/ (WebP, about 800 and 1600 px wide) and uncomment:
+<ul class="shots" tabindex="0" aria-label="Metal Arms in VR photos"><li class="wide"><img src="img/vr/metal-arms-1-800.webp" srcset="img/vr/metal-arms-1-800.webp 800w, img/vr/metal-arms-1-1600.webp 1600w" sizes="(min-width:860px) 560px, 90vw" width="800" height="450" alt="PLACEHOLDER: describe the photo." loading="lazy" decoding="async"></li></ul>
+-->
+</div>
+<div class="save" id="save-p45">
+<p class="block">Block 04</p>
+<h3 id="save-p45-h">Project 45</h3>
+<p class="status">2020 to 2021, not released</p>
+<p class="d">An Android app for a campaign organisation, with a blog, events you could sort by date, popularity or distance, and points for taking part.</p>
+<p class="tech">Kotlin <span aria-hidden="true">/</span> Firebase <span aria-hidden="true">/</span> MVVM</p>
+<ul class="shots"><li><img src="img/project45-160.webp" srcset="img/project45-160.webp 160w, img/project45-320.webp 320w" sizes="150px" width="160" height="347" alt="Home screen of the Project 45 app." loading="lazy" decoding="async"></li></ul>
+</div>
+<div class="save" id="save-fora">
+<p class="block">Block 05</p>
+<h3 id="save-fora-h">Fora</h3>
+<p class="status">2020 to 2021, not released</p>
+<p class="d">A recipe app where you could search and rate recipes and add your own once signed in.</p>
+<p class="tech">Android <span aria-hidden="true">/</span> Firebase</p>
+<ul class="shots"><li><img src="img/fora-160.webp" srcset="img/fora-160.webp 160w, img/fora-320.webp 320w" sizes="150px" width="160" height="347" alt="Home screen of the Fora recipe app." loading="lazy" decoding="async"></li></ul>
+</div>
+<div class="save" id="save-covid">
+<p class="block">Block 06</p>
+<h3 id="save-covid-h">CovidCheck</h3>
+<p class="status">2020 to 2021, not released</p>
+<p class="d">Built in a week for a TopCoder challenge. It showed Covid-19 figures by country, on a list and on a Google map.</p>
+<p class="tech">Android <span aria-hidden="true">/</span> Google Maps</p>
+<ul class="shots"><li><img src="img/covidcheck-160.webp" srcset="img/covidcheck-160.webp 160w, img/covidcheck-320.webp 320w" sizes="150px" width="160" height="347" alt="Home screen of the CovidCheck app." loading="lazy" decoding="async"></li></ul>
+</div>
+</div>
+</div>
 </section>
+
+<section class="sec wrap contact" id="contact" aria-labelledby="contact-h">
+<p class="kicker rv"><span>03</span> Continue?</p>
+<h2 id="contact-h" class="rv">Contact</h2>
+<!-- COPY: contact -->
+<p class="note rv">Based in Scotland. Email is the best way to reach me.</p>
+<ul class="menu rv">
+<li><a href="mailto:alyhuggan@hotmail.co.uk">alyhuggan<wbr>@hotmail.co.uk</a></li>
+<li><a href="https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/">LinkedIn</a></li>
+<li><a href="https://github.com/aly95">GitHub</a></li>
+</ul>
+</section>
+
 </main>
-<footer class="wrap">© 2026 Aly Huggan</footer>
+
+<footer class="wrap foot">
+<p>© 2026 Aly Huggan. Plain HTML, CSS and a little JavaScript. No trackers.</p>
+</footer>
 </body>
 </html>
