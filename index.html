@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aly Huggan, Android engineer</title>
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f2ebdd" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17161a" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Aly Huggan is a senior Android engineer based in Scotland, currently building OSS Nihongo, an open source app for learning Japanese.">
 <link rel="canonical" href="https://aly95.github.io/">
 <meta property="og:type" content="website">
@@ -23,49 +23,162 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
+<script src="/site.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="wrap site-header"><a class="name" href="#top">Aly Huggan</a><nav aria-label="Sections"><a href="#oss-nihongo">OSS Nihongo</a><a href="#earlier-projects">Earlier projects</a><a href="#contact">Contact</a></nav></header>
-<main id="main" class="wrap">
-<section class="intro" id="top">
-<h1>Aly Huggan</h1>
-<p class="lead">I’m an Android engineer based in Scotland.</p>
-<p>I joined VML as a mobile app engineer in February 2021 and I’m now a senior Android engineer there. In that time I’ve helped ship and maintain several apps. Outside work I’m building OSS Nihongo, an Android app for learning Japanese.</p>
-<ul class="links"><li><a href="mailto:alyhuggan@hotmail.co.uk">Email</a></li><li><a href="https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/">LinkedIn</a></li><li><a href="https://github.com/aly95">GitHub</a></li></ul>
-</section>
-<section id="oss-nihongo" aria-labelledby="oss-h">
-<h2 id="oss-h">OSS Nihongo</h2>
-<p class="status">Work in progress · Kotlin · Android</p>
-<div class="stack">
-<p>Studying Japanese usually means juggling a few tools: WaniKani for kanji and vocabulary, Anki for your own decks, Bunpro for grammar. OSS Nihongo is my attempt to put that whole routine into one free app.</p>
-<p>What it does so far:</p>
-<ul class="feat">
-<li>Lessons and reviews on a spaced repetition schedule, synced with your WaniKani account</li>
-<li>Imports Anki decks from .apkg files</li>
-<li>Grammar study in the style of Bunpro</li>
-<li>A YouTube watcher that shows the subtitles, highlights the words you already know and tells you what percentage of a video you know</li>
-<li>Text to speech, home screen widgets, and dark, OLED and paper themes</li>
-</ul>
-<p>It isn’t released yet. Right now I’m working on UI polish, grammar content and getting it ready for release. The source will be public when it launches.</p>
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false"><filter id="ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.05" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -7 4.9" result="s"/><feComposite in="d" in2="s" operator="in"/></filter></svg>
+
+<header class="wrap top">
+<a class="home" href="#top">Aly Huggan</a>
+<nav aria-label="Sections">
+<a href="#about">About</a>
+<a href="#oss-nihongo">OSS Nihongo</a>
+<a href="#earlier-projects">Earlier</a>
+<a href="#away">Away</a>
+<a href="#contact">Contact</a>
+</nav>
+<div class="themes" role="group" aria-label="Colour theme" hidden>
+<button type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+<button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>
+<button type="button" data-set-theme="oled" aria-pressed="false">OLED</button>
 </div>
-<ul class="shots" tabindex="0" aria-label="OSS Nihongo screenshots, scrollable"><li><figure class="frame"><img src="img/home-360.webp" srcset="img/home-360.webp 360w, img/home-720.webp 720w" sizes="(min-width:960px) 300px, (min-width:640px) 30vw, 60vw" width="360" height="727" alt="OSS Nihongo home screen showing lessons and reviews due, a daily goal and a chart of upcoming reviews." loading="lazy" decoding="async"></figure></li><li><figure class="frame"><img src="img/lesson-360.webp" srcset="img/lesson-360.webp 360w, img/lesson-720.webp 720w" sizes="(min-width:960px) 300px, (min-width:640px) 30vw, 60vw" width="360" height="727" alt="A kanji lesson showing the character’s meaning, readings, the radicals it is built from and a mnemonic." loading="lazy" decoding="async"></figure></li><li><figure class="frame"><img src="img/review-360.webp" srcset="img/review-360.webp 360w, img/review-720.webp 720w" sizes="(min-width:960px) 300px, (min-width:640px) 30vw, 60vw" width="360" height="727" alt="A vocabulary review after a wrong answer, with the correct meanings and reading shown below." loading="lazy" decoding="async"></figure></li><li class="wide"><figure class="frame land"><img src="img/watch-800.webp" srcset="img/watch-800.webp 800w, img/watch-1600.webp 1600w" sizes="(min-width:720px) 720px, 90vw" width="800" height="369" alt="A Japanese video playing with its subtitle line below. Words the learner already knows are highlighted." loading="lazy" decoding="async"></figure></li></ul>
-<p class="cap">Screenshots from a development build. OSS Nihongo is an independent project and isn’t affiliated with WaniKani, Anki or Bunpro.</p>
+</header>
+
+<main id="main">
+
+<section class="hero wrap" id="top">
+<div class="hero-main">
+<p class="eyebrow">Senior Android engineer <span aria-hidden="true">/</span> VML <span aria-hidden="true">/</span> Scotland</p>
+<h1 class="name"><span class="ln"><span>Aly</span></span> <span class="ln"><span>Huggan</span></span><span class="seal" aria-hidden="true"><span lang="ja">アリー印</span></span></h1>
+</div>
+<p class="tate" lang="ja"><span>アンドロイドエンジニア。</span><span>スコットランド在住。</span><span>日本語、勉強中。</span></p>
+<div class="hero-foot">
+<p class="lead">I’m a senior Android engineer at VML, where I started as a mobile app engineer in February 2021. Outside work I’m building <a href="#oss-nihongo">OSS Nihongo</a>, an Android app for learning Japanese.</p>
+<ul class="links">
+<li><a href="mailto:alyhuggan@hotmail.co.uk">Email</a></li>
+<li><a href="https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/">LinkedIn</a></li>
+<li><a href="https://github.com/aly95">GitHub</a></li>
+</ul>
+</div>
 </section>
-<section id="earlier-projects" aria-labelledby="earlier-h">
-<h2 id="earlier-h">Earlier projects</h2>
-<p style="margin-top:var(--space-3)">Side projects from 2020 and 2021, when I was starting out with Android. None of them were released and none are running today.</p>
-<article class="proj"><div><h3>Project 45</h3><p>An Android app built for a campaign organisation. It had a blog, events that people could create and sort by date, popularity or distance, comments and favourites, and points for taking part.</p><ul class="tags"><li>Kotlin</li><li>Firebase</li><li>MVVM</li></ul></div><figure class="frame"><img src="img/project45-160.webp" srcset="img/project45-160.webp 160w, img/project45-320.webp 320w" sizes="120px" width="160" height="347" alt="Home screen of the Project 45 app." loading="lazy" decoding="async"></figure></article><article class="proj"><div><h3>Fora</h3><p>A recipe and food rating app. You could browse and search recipes, rate and favourite them, and add your own once signed in.</p><ul class="tags"><li>Android</li><li>Firebase</li></ul></div><figure class="frame"><img src="img/fora-160.webp" srcset="img/fora-160.webp 160w, img/fora-320.webp 320w" sizes="120px" width="160" height="347" alt="Home screen of the Fora recipe app." loading="lazy" decoding="async"></figure></article><article class="proj"><div><h3>CovidCheck</h3><p>Built in a week for a TopCoder challenge. It showed global and per-country Covid-19 figures, a map with a marker for each country, and a button to share a screenshot of the current screen.</p><ul class="tags"><li>Android</li><li>Google Maps</li></ul></div><figure class="frame"><img src="img/covidcheck-160.webp" srcset="img/covidcheck-160.webp 160w, img/covidcheck-320.webp 320w" sizes="120px" width="160" height="347" alt="Home screen of the CovidCheck app." loading="lazy" decoding="async"></figure></article>
+
+<section class="sec wrap" id="about" aria-labelledby="about-h">
+<div class="rail" aria-hidden="true"><span class="no">01</span><span class="kj" lang="ja">紹介</span><span class="yomi" lang="ja">しょうかい</span></div>
+<div class="body">
+<h2 id="about-h" class="rv">About</h2>
+<p class="big rv">Most of what I do is front-end, on apps I’ve helped ship and still maintain.</p>
+<div class="cols rv">
+<p>I’ve been learning Japanese for about three and a half years, and I’ve spent a slightly ridiculous amount of time on WaniKani, Bunpro and Anki.</p>
+<p>These days I mostly learn by immersion: Japanese YouTube, anime, light novels and sentence mining. My reading is considerably better than my speaking.</p>
+</div>
+</div>
 </section>
-<section id="contact" aria-labelledby="contact-h">
-<h2 id="contact-h">Contact</h2>
-<p style="margin-top:var(--space-3)">Email is the best way to reach me.</p>
-<ul class="links"><li><a href="mailto:alyhuggan@hotmail.co.uk">alyhuggan@hotmail.co.uk</a></li><li><a href="https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/">LinkedIn</a></li><li><a href="https://github.com/aly95">GitHub</a></li></ul>
-<p class="muted" style="margin-top:var(--space-4)">Based in Scotland.</p>
+
+<section class="panel" id="oss-nihongo" aria-labelledby="oss-h">
+<div class="sec wrap">
+<div class="rail" aria-hidden="true"><span class="no">02</span><span class="kj" lang="ja">制作</span><span class="yomi" lang="ja">せいさく</span></div>
+<div class="body">
+<p class="status rv"><span class="dot" aria-hidden="true"></span>Work in progress <span aria-hidden="true">/</span> Kotlin <span aria-hidden="true">/</span> Open source at release</p>
+<h2 id="oss-h" class="rv">OSS Nihongo <span class="jp" lang="ja" aria-hidden="true">日本語</span></h2>
+<p class="big rv">I study with WaniKani, Anki and Bunpro, and I wanted them in one place. OSS Nihongo is an Android app, written in Kotlin, that does that.</p>
+<div class="cols rv">
+<p>Before it I tried an Android app that turned audio from videos into Anki cards, and looked at adding dual subtitles and Anki support to Stremio.</p>
+<p>It isn’t released yet. It will be free, and the source will be public when it is. I’m working on grammar content and UI polish at the moment.</p>
+</div>
+</div>
+</div>
+
+<div class="wrap watch rv">
+<figure class="wide">
+<img src="img/watch-800.webp" srcset="img/watch-800.webp 800w, img/watch-1600.webp 1600w" sizes="(min-width:1320px) 1208px, 92vw" width="800" height="369" alt="A Japanese video playing with its subtitle line below. Words the learner already knows are highlighted." loading="lazy" decoding="async">
+<figcaption><span class="pl" lang="ja" aria-hidden="true">一</span>The YouTube watcher plays a video with its subtitles, marks the words I already know and shows what percentage of the video that is.</figcaption>
+</figure>
+
+<div class="known" id="known">
+<p class="known-h">The same idea, on one line. <span class="known-try" hidden>Pick the words you know.</span></p>
+<p class="line" lang="ja"><span class="w is-known" data-w>最近</span>は<span class="w is-known" data-w>いつも</span><span class="w" data-w>スマホ</span>で<span class="w is-known" data-w>電話します</span><span class="w" data-w>からね</span>。</p>
+<p class="en">These days, we always make calls with our smartphones.</p>
+<div class="meter" aria-hidden="true"><span class="fill"></span></div>
+<p class="pct" aria-live="polite"><strong id="known-pct">60%</strong> known <span id="known-n">3 of 5 words</span></p>
+</div>
+</div>
+
+<div class="wrap">
+<ul class="prints" tabindex="0" aria-label="OSS Nihongo screenshots">
+<li class="rv"><figure data-par="-0.05"><img src="img/home-360.webp" srcset="img/home-360.webp 360w, img/home-720.webp 720w" sizes="(min-width:900px) 300px, 70vw" width="360" height="727" alt="OSS Nihongo home screen showing lessons and reviews due, a daily goal and a chart of upcoming reviews." loading="lazy" decoding="async"><figcaption><span class="pl" lang="ja" aria-hidden="true">二</span>Home, with what’s due today.</figcaption></figure></li>
+<li class="rv"><figure data-par="0.05"><img src="img/lesson-360.webp" srcset="img/lesson-360.webp 360w, img/lesson-720.webp 720w" sizes="(min-width:900px) 300px, 70vw" width="360" height="727" alt="A kanji lesson showing the character’s meaning, readings, the radicals it is built from and a mnemonic." loading="lazy" decoding="async"><figcaption><span class="pl" lang="ja" aria-hidden="true">三</span>A kanji lesson.</figcaption></figure></li>
+<li class="rv"><figure data-par="-0.09"><img src="img/review-360.webp" srcset="img/review-360.webp 360w, img/review-720.webp 720w" sizes="(min-width:900px) 300px, 70vw" width="360" height="727" alt="A vocabulary review after a wrong answer, with the correct meanings and reading shown below." loading="lazy" decoding="async"><figcaption><span class="pl" lang="ja" aria-hidden="true">四</span>A review I got wrong.</figcaption></figure></li>
+</ul>
+</div>
+
+<div class="wrap does">
+<h3 class="rv">What it does so far</h3>
+<ol class="index">
+<li class="rv"><span class="t">Lessons and reviews</span><span class="d">On a spaced repetition schedule, synced with a WaniKani account.</span></li>
+<li class="rv"><span class="t">Anki decks</span><span class="d">Imported from .apkg files.</span></li>
+<li class="rv"><span class="t">Grammar</span><span class="d">Study in the style of Bunpro.</span></li>
+<li class="rv"><span class="t">YouTube watcher</span><span class="d">Subtitles under the video, with the words you know marked and counted.</span></li>
+<li class="rv"><span class="t">The rest</span><span class="d">Text to speech, home screen widgets, and dark, OLED and paper themes.</span></li>
+</ol>
+<p class="small">Screenshots are from a development build. OSS Nihongo is an independent project and isn’t affiliated with WaniKani, Anki or Bunpro.</p>
+</div>
 </section>
+
+<section class="sec wrap" id="earlier-projects" aria-labelledby="earlier-h">
+<div class="rail" aria-hidden="true"><span class="no">03</span><span class="kj" lang="ja">過去</span><span class="yomi" lang="ja">かこ</span></div>
+<div class="body">
+<h2 id="earlier-h" class="rv">Earlier projects</h2>
+<p class="note rv">Side projects from 2020 and 2021, when I was starting out with Android. None of them were released and none are running today.</p>
+<ul class="projects">
+<li class="rv"><div><h3>Project 45</h3><p class="tech">Kotlin <span aria-hidden="true">/</span> Firebase <span aria-hidden="true">/</span> MVVM</p></div><p>An Android app for a campaign organisation, with a blog, events you could sort by date, popularity or distance, and points for taking part.</p><img src="img/project45-160.webp" srcset="img/project45-160.webp 160w, img/project45-320.webp 320w" sizes="104px" width="160" height="347" alt="Home screen of the Project 45 app." loading="lazy" decoding="async"></li>
+<li class="rv"><div><h3>Fora</h3><p class="tech">Android <span aria-hidden="true">/</span> Firebase</p></div><p>A recipe app where you could search and rate recipes and add your own once signed in.</p><img src="img/fora-160.webp" srcset="img/fora-160.webp 160w, img/fora-320.webp 320w" sizes="104px" width="160" height="347" alt="Home screen of the Fora recipe app." loading="lazy" decoding="async"></li>
+<li class="rv"><div><h3>CovidCheck</h3><p class="tech">Android <span aria-hidden="true">/</span> Google Maps</p></div><p>Built in a week for a TopCoder challenge. It showed Covid-19 figures by country, on a list and on a Google map.</p><img src="img/covidcheck-160.webp" srcset="img/covidcheck-160.webp 160w, img/covidcheck-320.webp 320w" sizes="104px" width="160" height="347" alt="Home screen of the CovidCheck app." loading="lazy" decoding="async"></li>
+</ul>
+</div>
+</section>
+
+<section class="sec wrap" id="away" aria-labelledby="away-h">
+<div class="rail" aria-hidden="true"><span class="no">04</span><span class="kj" lang="ja">趣味</span><span class="yomi" lang="ja">しゅみ</span></div>
+<div class="body">
+<h2 id="away-h" class="rv">Away from Android</h2>
+<p class="big rv">I like getting things working that weren’t meant to.</p>
+<ul class="marks">
+<li class="rv"><span class="m" lang="ja" aria-hidden="true">改</span><h3>Recompiling</h3><p>I’ve worked on recompiling Digimon World for the PS1, and Metal Arms to run in VR through OpenXR.</p></li>
+<li class="rv"><span class="m" lang="ja" aria-hidden="true">直</span><h3>Repairs</h3><p>I repair PS5 controllers and keep ancient PCs going.</p></li>
+<li class="rv"><span class="m" lang="ja" aria-hidden="true">遊</span><h3>Rocket League</h3><p>I play a lot of it.</p></li>
+<li class="rv"><span class="m" lang="ja" aria-hidden="true">動</span><h3>Moving</h3><p>I lift weights four days a week and cycle most days.</p></li>
+<li class="rv"><span class="m" lang="ja" aria-hidden="true">犬</span><h3>Rosy</h3><p>I look after an elderly pug called Rosy.</p></li>
+</ul>
+</div>
+</section>
+
+<section class="sec wrap contact" id="contact" aria-labelledby="contact-h">
+<div class="rail" aria-hidden="true"><span class="no">05</span><span class="kj" lang="ja">連絡</span><span class="yomi" lang="ja">れんらく</span></div>
+<div class="body">
+<h2 id="contact-h" class="rv">Contact</h2>
+<p class="note rv">I’m in Scotland. Email is the best way to reach me.</p>
+<p class="mail rv"><a href="mailto:alyhuggan@hotmail.co.uk">alyhuggan<wbr>@hotmail.co.uk</a></p>
+<ul class="links rv">
+<li><a href="https://www.linkedin.com/in/alasdair-huggan-7ba1621a4/">LinkedIn</a></li>
+<li><a href="https://github.com/aly95">GitHub</a></li>
+</ul>
+</div>
+</section>
+
 </main>
-<footer class="wrap">© 2026 Aly Huggan</footer>
+
+<footer class="wrap foot">
+<p>© 2026 Aly Huggan. Plain HTML, CSS and a little JavaScript. No trackers.</p>
+<div class="themes" role="group" aria-label="Colour theme" hidden>
+<span>Themes named after the app’s</span>
+<button type="button" data-set-theme="paper" aria-pressed="false">Paper</button>
+<button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>
+<button type="button" data-set-theme="oled" aria-pressed="false">OLED</button>
+</div>
+</footer>
 </body>
 </html>
