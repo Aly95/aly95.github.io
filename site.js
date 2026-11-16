@@ -16,9 +16,10 @@ function store(kind, key, val) {
 }
 function current(el, on) { if (on) el.setAttribute('aria-current', 'true'); else el.removeAttribute('aria-current'); }
 
-// Counts written from the number of projects, so nothing is hardcoded.
+// Counts are written from the page itself: the top bar counts sections, the Projects meter counts saves.
 var saveEls = $$('.save');
-$$('[data-count]').forEach(function (el) { el.textContent = saveEls.length; });
+var sectionCount = $$('main > section').length;
+$$('[data-count]').forEach(function (el) { el.textContent = el.getAttribute('data-count') === 'sections' ? sectionCount : saveEls.length; });
 $$('.meter li').forEach(function (li, i) { li.classList.toggle('on', i < saveEls.length); });
 
 // Boot: the CSS plays it under html.boot; this ends it and remembers it ran.
@@ -323,7 +324,7 @@ function lightbox() {
   });
 }
 
-// Hero object: a wireframe memory card. Turns to rest once, then follows a mouse or pen.
+// Hero object: a wireframe Quest 3 headset. Turns to rest once, then follows a mouse or pen.
 function card3d() {
   var canvas = $('#gem');
   if (!canvas || !canvas.getContext) return;
@@ -331,31 +332,63 @@ function card3d() {
   var css = getComputedStyle(root);
   var BLUE = css.getPropertyValue('--blue').trim();
   var ORANGE = css.getPropertyValue('--orange').trim();
-  var used = Math.min(saveEls.length, 15);
 
-  // Geometry. Card is 5 x 7 x 0.6 units, y up, with the top right corner chamfered.
+  // Geometry. Units, y up, the visor faces +z. Edge kinds: 0 blue, 1 orange (cameras), 2 dim (strap, face pad).
   var V = [], E = [];
   function v(x, y, z) { V.push([x, y, z]); return V.length - 1; }
   function loop(pts, kind) {
     for (var i = 0; i < pts.length; i++) E.push([pts[i], pts[(i + 1) % pts.length], kind]);
   }
-  function rect(x0, y0, x1, y1, kind) { loop([v(x0, y0, 0.3), v(x1, y0, 0.3), v(x1, y1, 0.3), v(x0, y1, 0.3)], kind); }
-  var outline = [[-2.5, 3.5], [1.6, 3.5], [2.5, 2.6], [2.5, -3.5], [-2.5, -3.5]];
-  var front = outline.map(function (p) { return v(p[0], p[1], 0.3); });
-  var back = outline.map(function (p) { return v(p[0], p[1], -0.3); });
-  loop(front, 0);
-  loop(back, 0);
-  front.forEach(function (f, i) { E.push([f, back[i], 0]); });
-  rect(-1.9, 2.8, 1.9, 0.56, 0); // label: 10% to 42% of the height, inset 12%
-  var s = 0.6, gx = 0.2, gy = (2.66 - 3 * s) / 2;
-  for (var r = 0; r < 3; r++) {
-    for (var c = 0; c < 5; c++) {
-      var x = -1.9 + c * (s + gx), y = -0.14 - r * (s + gy);
-      rect(x, y, x + s, y - s, (r * 5 + c) < used ? 1 : 2);
-    }
+  // Rounded rectangle (or pill) centred on cx, cy at depth z, as a list of vertex ids.
+  function rrect(cx, cy, w, h, rad, z, seg) {
+    var pts = [], hw = w / 2 - rad, hh = h / 2 - rad;
+    var cs = [[hw, hh, 0], [-hw, hh, 90], [-hw, -hh, 180], [hw, -hh, 270]];
+    cs.forEach(function (c) {
+      for (var i = 0; i <= seg; i++) {
+        var a = (c[2] + 90 * i / seg) * Math.PI / 180;
+        pts.push(v(cx + c[0] + rad * Math.cos(a), cy + c[1] + rad * Math.sin(a), z));
+      }
+    });
+    return pts;
   }
+  function link(a, b, kind, step) {
+    for (var i = 0; i < a.length; i += step) E.push([a[i], b[i], kind]);
+  }
+  // Visor shell: a wide front plate and a smaller rear plate, joined by a few ribs.
+  var front = rrect(0, 0, 7.2, 3.4, 1.0, 1.3, 5);
+  var mid = rrect(0, 0, 7.0, 3.3, 0.95, 0.2, 5);
+  var rear = rrect(0, -0.05, 6.4, 3.0, 0.9, -0.9, 5);
+  loop(front, 0); loop(mid, 0); loop(rear, 0);
+  link(front, mid, 0, 3); link(mid, rear, 0, 3);
+  // Nose cut-out and face pad.
+  loop([v(-0.9, -1.65, -0.9), v(-0.5, -1.0, -0.9), v(0.5, -1.0, -0.9), v(0.9, -1.65, -0.9)], 2);
+  loop(rrect(0, -0.05, 5.6, 2.5, 0.8, -1.5, 5), 2);
+  link(rear, rrect(0, -0.05, 5.6, 2.5, 0.8, -1.5, 5), 2, 3);
+  // Three camera pills on the front: two wide set RGB cameras and a centre sensor.
+  [[-2.55, 0.35, 0.55, 1.5], [2.55, 0.35, 0.55, 1.5], [0, 0.45, 0.5, 1.0]].forEach(function (p) {
+    loop(rrect(p[0], p[1], p[2], p[3], p[2] / 2, 1.3, 3), 1);
+  });
+  // Small tracking sensors low on the front.
+  [[-1.5, -0.95], [1.5, -0.95]].forEach(function (p) {
+    loop(rrect(p[0], p[1], 0.35, 0.35, 0.17, 1.3, 2), 1);
+  });
+  // Head strap: a band out of each side, around the back of the head, plus a top strap.
+  function band(y) {
+    var pts = [v(3.4, y, -0.3)], t;
+    for (t = 0; t <= 8; t++) {
+      var a = Math.PI * t / 8;
+      pts.push(v(3.3 * Math.cos(a), y, -1.6 - 3.0 * Math.sin(a)));
+    }
+    pts.push(v(-3.4, y, -0.3));
+    return pts;
+  }
+  var b1 = band(0.45), b2 = band(-0.35);
+  for (var i = 0; i < b1.length - 1; i++) { E.push([b1[i], b1[i + 1], 2]); E.push([b2[i], b2[i + 1], 2]); }
+  link(b1, b2, 2, 2);
+  var top = [v(0, 1.65, -0.4), v(0, 2.3, -1.3), v(0, 2.2, -2.8), v(0, 0.45, -4.6)];
+  for (i = 0; i < 3; i++) E.push([top[i], top[i + 1], 2]);
 
-  var REST_YAW = 28, REST_TILT = 14;
+  var REST_YAW = -22, REST_TILT = 10;
   var yaw = REST_YAW, tilt = REST_TILT, tYaw = REST_YAW, tTilt = REST_TILT;
   var intro = null, build = null, raf = 0, visible = true, size = 0, timer = 0;
 
@@ -369,13 +402,13 @@ function card3d() {
     if (!size) return;
     var ay = yaw * Math.PI / 180, at = tilt * Math.PI / 180;
     var cy = Math.cos(ay), sy = Math.sin(ay), ct = Math.cos(at), st = Math.sin(at);
-    var k = size / 9.2;
+    var k = size / 14.5;
     var P = V.map(function (p) {
-      var x = p[0] * cy + p[2] * sy, z = -p[0] * sy + p[2] * cy;
+      var pz = p[2] + 2, x = p[0] * cy + pz * sy, z = -p[0] * sy + pz * cy;
       var y = p[1] * ct - z * st;
       z = p[1] * st + z * ct;
       var f = 14 / (14 - z);
-      return [size / 2 + x * f * k, size / 2 - y * f * k];
+      return [size * 0.6 + x * f * k, size / 2 - y * f * k];
     });
     ctx.clearRect(0, 0, size, size);
     ctx.lineCap = 'square';
