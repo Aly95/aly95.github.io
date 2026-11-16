@@ -232,10 +232,10 @@ html:not(.js) .card-head{margin-bottom:var(--s3)}
  .js .card-head,.js .group-label,.js .save-head{grid-column:1}
  .js .save-body{grid-column:2;grid-row:1/-1;min-height:30rem;border-top:1px solid var(--line);box-shadow:6px 6px 0 var(--soft)}
  .js .save-big{display:block;margin-top:var(--s4);font:italic 700 clamp(1.75rem,3.4vw,3rem)/.95 var(--display);text-transform:uppercase;letter-spacing:-.02em;text-wrap:balance}
- .save-body:has(.frames>li:only-child){display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--s6);align-content:start}
- .save-body:has(.frames>li:only-child)>*{grid-column:1/-1}
- .save-body:has(.frames>li:only-child)>.gallery{grid-column:1;grid-row:span 4}
- .save-body:has(.frames>li:only-child)>:is(.d,.tech,.fine){grid-column:2}
+ .save-body:not([hidden]):has(.frames>li:only-child){display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--s6);align-content:start}
+ .save-body:not([hidden]):has(.frames>li:only-child)>*{grid-column:1/-1}
+ .save-body:not([hidden]):has(.frames>li:only-child)>.gallery{grid-column:1;grid-row:span 4}
+ .save-body:not([hidden]):has(.frames>li:only-child)>:is(.d,.tech,.fine){grid-column:2}
 }
 @media(max-width:859.98px){
  .save-no .tri{transform:rotate(90deg)}
