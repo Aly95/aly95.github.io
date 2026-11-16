@@ -13,10 +13,11 @@ To preview, run `python3 -m http.server` in this folder and open http://localhos
   - `reveal`: fades each block in once as it scrolls into view.
   - `saves`: turns the project list into an accordion (list plus detail on wide screens), with deep links like `/#save-fora`.
   - `gallery` and `lightbox`: thumbnail switching and a full-screen image viewer.
-  - `card3d`: draws the wireframe memory card in the hero.
+  - `kit`: passes the pointer position to the hero's Quest 3 headset and controllers so they shift slightly on wide screens. The drawing itself is inline SVG in `index.html` and needs no script.
   - `fx`: the FX toggle, which turns off scanlines and decorative motion and remembers the choice.
   - `contact`: arrow keys between the contact links, and the Copy button for the email.
   - `year`: the year in the footer.
+- `tools/quest3.py`: not part of the site. It draws the hero's headset and controllers from a small 3D model and prints the four `<svg>` elements inside `<div class="q3">` in `index.html`. To change the drawing, edit the script, run `python3 tools/quest3.py` (needs NumPy and Shapely) and paste the output over those elements. The paths in `index.html` are the script's output with no hand edits. Colours and line weights are the `.q` rules in `style.css`.
 - `404.html`: the not-found page.
 - `project45.html`, `fora.html`, `covid.html`: redirects from the old project pages.
 - `fonts/`: Inter, Chakra Petch and Silkscreen, self-hosted under the SIL Open Font License (`fonts/OFL.txt`).

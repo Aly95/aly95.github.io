@@ -13,6 +13,7 @@
 :root{color-scheme:dark;
 --bg:#06070b;--panel:#0c0f18;--panel2:#121625;--ink:#e8ecf8;--muted:#9aa4c0;
 --blue:#4d8dff;--blue-hi:#7aa8ff;--orange:#ff9a3d;
+--kit-1:#0d1730;--kit-2:#101d3d;--kit-3:#080b14;
 --line:rgba(150,170,255,.2);--line-strong:rgba(150,170,255,.6);--soft:rgba(150,170,255,.07);--glow:rgba(77,141,255,.35);
 --display:Chakra,"Chakra Fallback","Arial Narrow",Arial,sans-serif;--pixel:Silkscreen,"Pixel Fallback",ui-monospace,Menlo,Consolas,monospace;
 --sans:Inter,"Inter Fallback",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -79,17 +80,16 @@ p{text-wrap:pretty}
 /* Boot screen */
 .hero{position:relative;margin-top:calc(-1 * var(--bar));min-height:min(100vh,1100px);min-height:min(100svh,1100px);display:grid;overflow:hidden;background:radial-gradient(120% 90% at 78% 46%,#0f1a3a 0,rgba(15,26,58,0) 58%),var(--bg)}
 .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:var(--scan)}
-#gem{position:absolute;z-index:0;left:80%;top:50%;width:min(40vw,68vh);height:min(40vw,68vh);width:min(40vw,68svh);height:min(40vw,68svh);transform:translate(-50%,-50%)}
 .boot-in{position:relative;z-index:2;display:grid;grid-template-rows:1fr auto;padding-top:var(--bar);padding-bottom:var(--s4)}
 .log{position:absolute;top:calc(var(--bar) + 12px);left:var(--pad);visibility:hidden;font:400 .75rem/1.9 var(--pixel);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .log span{display:block}
 .log span::before{content:"> ";color:var(--blue-hi)}
 .log span::after{content:" ... OK";color:var(--orange)}
 .log b,.status-line b,.used b{font-weight:400;font-variant-numeric:tabular-nums}
-.title{align-self:center;max-width:100%;padding:clamp(28px,6vh,64px) 0 clamp(20px,4vh,48px)}
+.title{display:flex;flex-direction:column;align-self:center;max-width:100%;--name:clamp(3.4rem,min(15vw,26vh),15rem);--tpad:clamp(28px,6vh,64px);padding:var(--tpad) 0 clamp(20px,4vh,48px)}
 .role{font:400 .8125rem/1.5 var(--pixel);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .role span{margin:0 .5em}
-h1{position:relative;font:italic 700 clamp(3.4rem,min(15vw,26vh),15rem)/.82 var(--display);font-size:clamp(3.4rem,min(15vw,26svh),15rem);text-transform:uppercase;letter-spacing:-.035em;margin:clamp(10px,2vh,22px) 0 0 -.04em;padding:.04em .06em .04em 0;text-shadow:-.028em -.028em 0 var(--blue),.028em .028em 0 var(--orange)}
+h1{position:relative;font:italic 700 var(--name,3rem)/.82 var(--display);text-transform:uppercase;letter-spacing:-.035em;margin:clamp(10px,2vh,22px) 0 0 -.04em;padding:.04em .06em .04em 0;text-shadow:-.028em -.028em 0 var(--blue),.028em .028em 0 var(--orange)}
 h1 span{display:block}
 h1 span+span{padding-left:.5em}
 h1::after,h2::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--scan)}
@@ -103,21 +103,57 @@ h1::after,h2::after{content:"";position:absolute;inset:0;pointer-events:none;bac
 .alt:hover,.alt:focus-visible{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
 .status-line{display:flex;flex-wrap:wrap;gap:4px 24px;padding-top:12px;border-top:1px solid var(--line);font:400 .75rem/1.4 var(--pixel);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .status-line span:last-child{margin-left:auto;color:var(--orange)}
-@media(max-width:859.98px){
- #gem{left:auto;right:-12vw;top:calc(var(--bar) + 8px);width:64vw;height:64vw;transform:none;opacity:.35}
-}
+@supports(height:1svh){.title{--name:clamp(3.4rem,min(15vw,26svh),15rem)}}
 @media(max-width:559.98px){
- h1{font-size:clamp(3.4rem,min(21.5vw,20vh),9rem);font-size:clamp(3.4rem,min(21.5vw,20svh),9rem)}
+ .title{--name:clamp(3.4rem,min(21.5vw,20vh),9rem)}
+ @supports(height:1svh){.title{--name:clamp(3.4rem,min(21.5vw,20svh),9rem)}}
  h1 span+span{padding-left:0}
 }
 @media(max-height:480px) and (min-width:560px){
- h1{font-size:min(11vw,24vh);font-size:min(11vw,24svh)}
+ .title{--name:min(11vw,24vh)}
+ @supports(height:1svh){.title{--name:min(11vw,24svh)}}
  h1 span{display:inline}
  h1 span+span{padding-left:0}
  .title{padding:12px 0}
  .lead{margin-top:12px}
  .actions{margin-top:14px}
 }
+
+/* Hero kit: Quest 3 headset and controllers. Inline SVG line art, drawn by tools/quest3.py.
+   Sized in em of the name (--name) on desktop and of the strip height on small screens. */
+.q3{position:relative;height:0;z-index:-1}
+.q3-in{position:absolute;left:0;top:0;font-size:var(--name)}
+.q{position:absolute;display:block;overflow:visible;color:var(--ink)}
+.q *{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.q .f{fill:var(--kit-1)}.q .f2{fill:var(--kit-2)}.q .d{fill:var(--kit-3)}.q .g{fill:var(--bg)}.q .n{fill:none}
+.q .o{stroke:var(--blue);stroke-width:2}
+.q .s{stroke:var(--blue);stroke-width:1.25;stroke-opacity:.85}
+.q .t{stroke:var(--blue);stroke-width:1;stroke-opacity:.5}
+.q .a{stroke:var(--orange);stroke-width:1.5}
+.q .l{stroke:var(--blue-hi);stroke-width:1;stroke-opacity:.9}
+.q .h{stroke:var(--blue-hi);stroke-width:1;stroke-opacity:.6}
+.q .w{stroke:var(--blue);stroke-width:9;stroke-opacity:.12}
+.q .k{stroke:none}
+.q-st .f{fill:#0a1124}.q-st .s{stroke-opacity:.55}
+.q-st,.q-hmd{left:3.94em;top:-.345em;width:2.16em}
+.q-cl{left:4.74em;top:1.4em;width:.777em}
+.q-cr{left:5.6em;top:1.24em;width:.607em}
+.hero:has(.start:hover,.start:focus-visible) .q-cr .q-a{fill:var(--orange)}
+@media(max-width:859.98px){
+ .q3-in{display:none}
+ .q .o{stroke-width:1.5}.q .s,.q .a{stroke-width:1}.q .t,.q .l,.q .h{stroke-width:.75}.q .w{stroke-width:5}
+ @supports(container-type:size){
+  .title{align-self:stretch}
+  .q3{order:-1;flex:1 1 0;min-height:0;height:auto;container-type:size}
+  .q3-in{display:block;--h:clamp(22vw,calc(100cqh + var(--tpad) - 8px),29vw);font-size:var(--h);left:auto;right:0;top:calc((100cqh - var(--tpad) + 8px - var(--h)) / 2);width:2.95em;height:1em}
+  .q-st,.q-hmd{left:auto;right:0;top:0;width:1.56em}
+  .q-cl{left:.02em;top:.3em;width:.613em}
+  .q-cr{left:.72em;top:.2em;width:.479em}
+  @container (max-height:calc(22vw + 7.98px - clamp(28px,6vh,64px))){.q3-in{display:none}}
+ }
+}
+@media(max-width:559.98px){.q .t,.q .h,.q .n.l{display:none}}
+@media(max-height:480px){.q3{display:none}}
 
 /* Sections */
 .sec{padding-top:clamp(72px,9vw,136px);padding-bottom:clamp(72px,9vw,136px)}
@@ -312,6 +348,34 @@ html:not(.js) .card-head{margin-bottom:var(--s3)}
  html.boot h1{animation:power .4s var(--ease) .25s both}
  html.boot .role,html.boot .lead,html.boot .actions{animation:on .3s ease .7s both}
  html.boot .status-line{animation:on .2s ease .85s both}
+ html.boot .q-st,html.boot .q-hmd{animation:scan .4s steps(12) .4s both}
+ html.boot .q-cl{animation:scan .36s steps(12) .52s both}
+ html.boot .q-cr{animation:scan .36s steps(12) .58s both}
+ html.boot .q-p1{animation:pill .01s steps(1) .86s both}
+ html.boot .q-p2{animation:pill .01s steps(1) .92s both}
+ html.boot .q-p3{animation:pill .01s steps(1) .98s both}
+ @media(max-width:859.98px){
+  html.boot .q{animation:scan .2s steps(8) .76s both}
+  html.boot .q-p1{animation-delay:.9s}
+  html.boot .q-p2{animation-delay:.94s}
+ }
+ @media(min-width:860px){
+  html:not([data-fx=off]) .q{transition:transform .5s var(--ease)}
+  html:not([data-fx=off]) .back .q{transition-duration:.9s}
+  html:not([data-fx=off]) .q-st{transform:translate(calc(var(--px,0)*4px),calc(var(--py,0)*2.5px))}
+  html:not([data-fx=off]) .q-hmd{transform:translate(calc(var(--px,0)*8px),calc(var(--py,0)*5px))}
+  html:not([data-fx=off]) .q-cl{transform:translate(calc(var(--px,0)*14px),calc(var(--py,0)*9px)) rotate(calc(var(--px,0)*1.5deg))}
+  html:not([data-fx=off]) .q-cr{transform:translate(calc(var(--px,0)*20px),calc(var(--py,0)*12px)) rotate(calc(var(--px,0)*-2deg))}
+ }
+ /* Idle float. Delete from here to "end idle float" to remove it; nothing else depends on it. */
+ @media(min-width:860px) and (any-pointer:fine){
+  html:not([data-fx=off]):not(.boot) .q3 .q{animation:float 8s ease-in-out infinite alternate}
+  html:not([data-fx=off]):not(.boot) .q3 .q-cl{animation-duration:6s;--float:-5px}
+  html:not([data-fx=off]):not(.boot) .q3 .q-cr{animation-duration:7s;--float:-5px}
+  html:not([data-fx=off]):not(.boot) .q3.off .q{animation-play-state:paused}
+ }
+ @keyframes float{to{translate:0 var(--float,-4px)}}
+ /* end idle float */
  html:not([data-fx=off]) .start.blink .tri{animation:blink .5s steps(1) 3}
  html.js:not([data-fx=off]) .rv:not(.in){opacity:0;transform:translateY(16px)}
  html.js:not([data-fx=off]) h2.rv:not(.in){clip-path:inset(0 100% 0 0)}
@@ -326,6 +390,8 @@ html:not(.js) .card-head{margin-bottom:var(--s3)}
 @media(prefers-reduced-motion:reduce){.start:hover,.start:focus-visible,.start:active{transform:none}}
 [data-fx=off] .start:hover,[data-fx=off] .start:focus-visible,[data-fx=off] .start:active{transform:none}
 @keyframes on{from{opacity:0}to{opacity:1}}
+@keyframes scan{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(-9px)}}
+@keyframes pill{from{stroke:var(--blue);stroke-opacity:.5}to{stroke:var(--orange);stroke-opacity:1}}
 @keyframes logout{0%{visibility:visible;opacity:1}99%{visibility:visible;opacity:0}100%{visibility:hidden;opacity:0}}
 @keyframes blink{50%{opacity:0}}
 @keyframes power{from{transform:scaleY(.02) scaleX(1.2);filter:brightness(3)}to{transform:none;filter:none}}
@@ -339,16 +405,25 @@ html:not(.js) .card-head{margin-bottom:var(--s3)}
 .page404 .kicker{margin-bottom:0}
 .page404 p{color:var(--muted)}
 
-@media print{.rv{opacity:1!important;transform:none!important;clip-path:none!important}.hud{position:static}}
+@media print{.rv{opacity:1!important;transform:none!important;clip-path:none!important}.hud{position:static}.q3{display:none}}
 
 @media(forced-colors:active){
- h1{text-shadow:none}
+ /* No text plate behind the name: it is taller than the letters and covered the role line, the lead and the kit */
+ h1{text-shadow:none;forced-color-adjust:none;color:CanvasText}
  .hero::before,h1::after,h2::after,.panel::before,.save-body::before{display:none}
  .save-head>button[aria-expanded=true],.thumbs a[aria-current]{border:2px solid Highlight}
  .tri,.meter li.on,.menu a::before,.hud nav a[aria-current]::before{background:CanvasText;forced-color-adjust:none}
  .status.live{border:1px solid CanvasText}
+ .q{forced-color-adjust:none}
+ .q [class]{stroke:CanvasText;stroke-opacity:1}
+ .q .f,.q .f2,.q .d,.q .g{fill:Canvas}
+ .q .w{display:none}
+ .q .k{stroke:none}
+ .hero:has(.start:hover,.start:focus-visible) .q-cr .q-a{fill:Highlight}
 }
 @media(prefers-contrast:more){
  :root{--muted:#c3cbe0;--line:rgba(150,170,255,.6)}
  .hero::before,h1::after,h2::after{display:none}
+ .q .t{stroke-opacity:.8}
+ .q .w{display:none}
 }

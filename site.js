@@ -48,13 +48,15 @@ function boot() {
   setTimeout(function () { end(true); }, 1600);
 }
 
-// HUD: solid bar once the hero is gone, and scroll spy.
+// HUD: solid bar once the hero is gone, scroll spy, and pausing the hero kit's float off screen.
 function hud() {
   var bar = $('.hud');
   var hero = $('.hero');
+  var kitEl = $('.q3');
   if (!bar || !hero || !('IntersectionObserver' in window)) return;
   new IntersectionObserver(function (en) {
     bar.classList.toggle('solid', !en[0].isIntersecting);
+    if (kitEl) kitEl.classList.toggle('off', !en[0].isIntersecting);
   }, { rootMargin: '-60px 0px 0px 0px' }).observe(hero);
 
   var links = $$('nav a', bar);
@@ -324,187 +326,35 @@ function lightbox() {
   });
 }
 
-// Hero object: a wireframe Quest 3 headset. Turns to rest once, then follows a mouse or pen.
-function card3d() {
-  var canvas = $('#gem');
-  if (!canvas || !canvas.getContext) return;
-  var ctx = canvas.getContext('2d');
-  var css = getComputedStyle(root);
-  var BLUE = css.getPropertyValue('--blue').trim();
-  var ORANGE = css.getPropertyValue('--orange').trim();
-
-  // Geometry. Units, y up, the visor faces +z. Edge kinds: 0 blue, 1 orange (cameras), 2 dim (strap, face pad).
-  var V = [], E = [];
-  function v(x, y, z) { V.push([x, y, z]); return V.length - 1; }
-  function loop(pts, kind) {
-    for (var i = 0; i < pts.length; i++) E.push([pts[i], pts[(i + 1) % pts.length], kind]);
-  }
-  // Rounded rectangle (or pill) centred on cx, cy at depth z, as a list of vertex ids.
-  function rrect(cx, cy, w, h, rad, z, seg) {
-    var pts = [], hw = w / 2 - rad, hh = h / 2 - rad;
-    var cs = [[hw, hh, 0], [-hw, hh, 90], [-hw, -hh, 180], [hw, -hh, 270]];
-    cs.forEach(function (c) {
-      for (var i = 0; i <= seg; i++) {
-        var a = (c[2] + 90 * i / seg) * Math.PI / 180;
-        pts.push(v(cx + c[0] + rad * Math.cos(a), cy + c[1] + rad * Math.sin(a), z));
-      }
-    });
-    return pts;
-  }
-  function link(a, b, kind, step) {
-    for (var i = 0; i < a.length; i += step) E.push([a[i], b[i], kind]);
-  }
-  // Visor shell: a wide front plate and a smaller rear plate, joined by a few ribs.
-  var front = rrect(0, 0, 7.2, 3.4, 1.0, 1.3, 5);
-  var mid = rrect(0, 0, 7.0, 3.3, 0.95, 0.2, 5);
-  var rear = rrect(0, -0.05, 6.4, 3.0, 0.9, -0.9, 5);
-  loop(front, 0); loop(mid, 0); loop(rear, 0);
-  link(front, mid, 0, 3); link(mid, rear, 0, 3);
-  // Nose cut-out and face pad.
-  loop([v(-0.9, -1.65, -0.9), v(-0.5, -1.0, -0.9), v(0.5, -1.0, -0.9), v(0.9, -1.65, -0.9)], 2);
-  loop(rrect(0, -0.05, 5.6, 2.5, 0.8, -1.5, 5), 2);
-  link(rear, rrect(0, -0.05, 5.6, 2.5, 0.8, -1.5, 5), 2, 3);
-  // Three camera pills on the front: two wide set RGB cameras and a centre sensor.
-  [[-2.55, 0.35, 0.55, 1.5], [2.55, 0.35, 0.55, 1.5], [0, 0.45, 0.5, 1.0]].forEach(function (p) {
-    loop(rrect(p[0], p[1], p[2], p[3], p[2] / 2, 1.3, 3), 1);
-  });
-  // Small tracking sensors low on the front.
-  [[-1.5, -0.95], [1.5, -0.95]].forEach(function (p) {
-    loop(rrect(p[0], p[1], 0.35, 0.35, 0.17, 1.3, 2), 1);
-  });
-  // Head strap: a band out of each side, around the back of the head, plus a top strap.
-  function band(y) {
-    var pts = [v(3.4, y, -0.3)], t;
-    for (t = 0; t <= 8; t++) {
-      var a = Math.PI * t / 8;
-      pts.push(v(3.3 * Math.cos(a), y, -1.6 - 3.0 * Math.sin(a)));
-    }
-    pts.push(v(-3.4, y, -0.3));
-    return pts;
-  }
-  var b1 = band(0.45), b2 = band(-0.35);
-  for (var i = 0; i < b1.length - 1; i++) { E.push([b1[i], b1[i + 1], 2]); E.push([b2[i], b2[i + 1], 2]); }
-  link(b1, b2, 2, 2);
-  var top = [v(0, 1.65, -0.4), v(0, 2.3, -1.3), v(0, 2.2, -2.8), v(0, 0.45, -4.6)];
-  for (i = 0; i < 3; i++) E.push([top[i], top[i + 1], 2]);
-
-  var REST_YAW = -22, REST_TILT = 10;
-  var yaw = REST_YAW, tilt = REST_TILT, tYaw = REST_YAW, tTilt = REST_TILT;
-  var intro = null, build = null, raf = 0, visible = true, size = 0, timer = 0;
-
-  function fit() {
-    var dpr = Math.min(window.devicePixelRatio || 1, wide.matches ? 2 : 1.5);
-    size = Math.round(canvas.clientWidth * dpr);
-    if (!size) return;
-    canvas.width = canvas.height = size;
-  }
-  function draw(progress) {
-    if (!size) return;
-    var ay = yaw * Math.PI / 180, at = tilt * Math.PI / 180;
-    var cy = Math.cos(ay), sy = Math.sin(ay), ct = Math.cos(at), st = Math.sin(at);
-    var k = size / 14.5;
-    var P = V.map(function (p) {
-      var pz = p[2] + 2, x = p[0] * cy + pz * sy, z = -p[0] * sy + pz * cy;
-      var y = p[1] * ct - z * st;
-      z = p[1] * st + z * ct;
-      var f = 14 / (14 - z);
-      return [size * 0.6 + x * f * k, size / 2 - y * f * k];
-    });
-    ctx.clearRect(0, 0, size, size);
-    ctx.lineCap = 'square';
-    var lw = Math.max(1, size / 380);
-    var n = progress === undefined ? E.length : Math.floor(E.length * progress);
-    for (var pass = 0; pass < 2; pass++) {
-      ctx.lineWidth = pass ? lw : lw * 5;
-      for (var i = 0; i < n; i++) {
-        var e = E[i], a = P[e[0]], b = P[e[1]];
-        ctx.strokeStyle = e[2] === 1 ? ORANGE : BLUE;
-        ctx.globalAlpha = (pass ? 1 : 0.12) * (e[2] === 2 ? 0.35 : 1);
-        ctx.beginPath();
-        ctx.moveTo(a[0], a[1]);
-        ctx.lineTo(b[0], b[1]);
-        ctx.stroke();
-      }
-    }
-    ctx.globalAlpha = 1;
-  }
-  function frame(now) {
+// Hero kit: the headset and controllers are inline SVG and need no script.
+// This only feeds the pointer position to the CSS parallax, on wide screens with a mouse or pen.
+function kit() {
+  var q = $('.q3');
+  var hero = $('.hero');
+  if (!q || !hero) return;
+  var raf = 0, cx = 0, cy = 0;
+  function frame() {
     raf = 0;
-    var busy = false, progress;
-    if (build) {
-      var t = (now - build) / 500;
-      if (t < 0) { progress = 0; busy = true; } else if (t < 1) { progress = t; busy = true; } else build = null;
-    }
-    if (intro) {
-      var u = Math.min(1, (now - intro) / 5000);
-      tYaw = REST_YAW - 45 * Math.pow(1 - u, 3);
-      yaw = tYaw;
-      if (u < 1) busy = true; else { intro = null; tYaw = REST_YAW; }
-    } else {
-      yaw += (tYaw - yaw) * 0.08;
-      tilt += (tTilt - tilt) * 0.08;
-      if (Math.abs(tYaw - yaw) > 0.05 || Math.abs(tTilt - tilt) > 0.05) busy = true;
-      else { yaw = tYaw; tilt = tTilt; }
-    }
-    draw(progress);
-    if (busy) kick();
-  }
-  function kick() {
-    if (!raf && visible && !document.hidden) raf = requestAnimationFrame(frame);
+    var r = hero.getBoundingClientRect();
+    q.style.setProperty('--px', Math.max(-1, Math.min(1, (cx - r.left) / r.width * 2 - 1)).toFixed(3));
+    q.style.setProperty('--py', Math.max(-1, Math.min(1, (cy - r.top) / r.height * 2 - 1)).toFixed(3));
   }
   function rest() {
-    intro = build = null;
-    yaw = tYaw = REST_YAW;
-    tilt = tTilt = REST_TILT;
     if (raf) { cancelAnimationFrame(raf); raf = 0; }
-    draw();
+    q.style.removeProperty('--px');
+    q.style.removeProperty('--py');
   }
-
-  fit();
-  if (moving() && root.classList.contains('boot')) {
-    var t0 = performance.now();
-    build = t0 + Math.max(0, 400 - t0);
-    intro = t0;
-    yaw = REST_YAW - 45;
-    draw(0);
-    kick();
-  } else {
-    draw();
-  }
-
-  var hero = $('.hero');
-  if (hero) {
-    hero.addEventListener('pointermove', function (e) {
-      if (e.pointerType === 'touch' || !moving()) return;
-      var r = hero.getBoundingClientRect();
-      tYaw = REST_YAW + ((e.clientX - r.left) / r.width - 0.5) * 20;
-      tTilt = REST_TILT + ((e.clientY - r.top) / r.height - 0.5) * 20;
-      intro = null;
-      kick();
-    });
-    hero.addEventListener('pointerleave', function () {
-      if (!moving()) return;
-      tYaw = REST_YAW;
-      tTilt = REST_TILT;
-      kick();
-    });
-  }
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (en) {
-      visible = en[0].isIntersecting;
-      if (!visible && raf) { cancelAnimationFrame(raf); raf = 0; } else kick();
-    }).observe(canvas);
-  }
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden && raf) { cancelAnimationFrame(raf); raf = 0; } else kick();
+  hero.addEventListener('pointermove', function (e) {
+    if (e.pointerType === 'touch' || !wide.matches || !moving()) return;
+    cx = e.clientX;
+    cy = e.clientY;
+    q.classList.remove('back');
+    if (!raf) raf = requestAnimationFrame(frame);
   });
-  window.addEventListener('resize', function () {
-    clearTimeout(timer);
-    timer = setTimeout(function () { fit(); draw(); }, 150);
-  });
-  function maybeRest() { if (!moving()) rest(); }
-  reduce.addEventListener('change', maybeRest);
-  document.addEventListener('fxchange', maybeRest);
+  hero.addEventListener('pointerleave', function () { q.classList.add('back'); rest(); });
+  reduce.addEventListener('change', rest);
+  wide.addEventListener('change', rest);
+  document.addEventListener('fxchange', rest);
 }
 
 // FX toggle: two buttons, one state.
@@ -564,7 +414,7 @@ function year() {
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 }
 
-[boot, hud, reveal, lightbox, saves, gallery, card3d, fx, contact, year].forEach(function (fn) {
+[boot, hud, reveal, lightbox, saves, gallery, kit, fx, contact, year].forEach(function (fn) {
   try { fn(); } catch (e) { console.error(e); }
 });
 })();
