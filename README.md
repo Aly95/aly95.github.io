@@ -25,7 +25,7 @@ To preview, run `python3 -m http.server` in this folder and open http://localhos
 
 ## Adding photos to a project (VR captures and similar)
 
-Metal Arms in VR and Digimon World ship as text only until photos are added. Adding them needs no CSS or JavaScript changes.
+Metal Arms in VR and Digimon World now have one capture each (Metal Arms in a wide gallery, Digimon World in a phone frame because the capture is portrait). Adding more needs no CSS or JavaScript changes.
 
 1. **Check each photo first.** Do not use a photo that shows a person, a face, a room at home, a screen with account names, or anything that identifies a location. In-headset captures and screen captures are fine.
 2. **Export as WebP, quality 80, with metadata stripped**, at three widths: 640, 1280 and 1920 px. If the source is narrower than 1920 px, save it at its own width but still name it `-1920` (never upscale). Aim for at most 220 KB at 1280 px and 420 KB for the largest. For example, with Pillow:
@@ -39,7 +39,7 @@ Metal Arms in VR and Digimon World ship as text only until photos are added. Add
    ```
 
 3. **Name and place them** as `img/{project}/{project}-{nn}-{width}.webp`, for example `img/metal-arms/metal-arms-01-1280.webp`. Put the strongest image first. At most 8 images per project.
-4. **Paste this block** into the project's `.save-body` in `index.html`, where the `PLACEHOLDER: VR photos` comment is (after `.save-big`, before the `.d` summary). Use one `<li>` per image, set `width` and `height` on the stage image and `data-w`/`data-h` on each thumbnail to the image's real 1280 px size, and write a one-sentence `alt` for each that says what is on screen. Captions are optional and should only describe what is visible (90 characters at most).
+4. **Paste this block** into the project's `.save-body` in `index.html`, after `.save-big` and before the `.d` summary (the Metal Arms panel has a working example). Use one `<li>` per image, set `width` and `height` on the stage image and `data-w`/`data-h` on each thumbnail to the image's real 1280 px size, and write a one-sentence `alt` for each that says what is on screen. Captions are optional and should only describe what is visible (90 characters at most).
 
    ```html
    <div class="gallery wide" data-title="Metal Arms in VR">
